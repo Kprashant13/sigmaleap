@@ -1,85 +1,144 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get modal elements
+    // Google Apps Script URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFrZ52SoXxq5gdhXA7bWNITAbJc5wfMtLNwvKwFYrP3r7dovaCo2IoPOc22pK5THnA/exec';
+    
+    // Modal functionality
     const modal = document.getElementById('signup-modal');
-    const modalForm = document.getElementById('modal-form');
-    const closeModal = document.querySelector('.close-modal');
+    const openButtons = document.querySelectorAll('.open-signup, #open-signup, #hero-signup');
+    const closeButton = document.querySelector('.close-modal');
     
-    // Get all elements that open the modal
-    const openModalButtons = document.querySelectorAll('.open-signup, #hero-signup, .pricing-btn.open-signup');
-    
-    // Function to open modal
+    // Open modal function
     function openModal() {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        // Track modal open in Google Analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'modal_open', {
+                'event_category': 'engagement',
+                'event_label': 'signup_modal'
+            });
+        }
     }
     
-    // Function to close modal
-    function closeModalFunc() {
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
+    // Close modal function
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        // Reset form states when closing
+        document.getElementById('modal-form').style.display = 'block';
+        document.getElementById('success-message').style.display = 'none';
+        document.getElementById('error-message').style.display = 'none';
     }
     
-    // Add click event to all open modal buttons
-    openModalButtons.forEach(button => {
+    // Retry form function
+    function retryForm() {
+        document.getElementById('error-message').style.display = 'none';
+        document.getElementById('modal-form').style.display = 'block';
+    }
+    
+    // Make retryForm available globally
+    window.retryForm = retryForm;
+    window.closeModal = closeModal;
+    
+    // Add click events to all buttons that open the modal
+    openButtons.forEach(button => {
         button.addEventListener('click', openModal);
     });
     
-    // Close modal when clicking the close button
-    closeModal.addEventListener('click', closeModalFunc);
+    // Close modal when clicking X
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+    }
     
-    // Close modal when clicking outside of modal content
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModalFunc();
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            closeModal();
         }
     });
     
-    // Prevent closing when clicking inside modal content
-    document.querySelector('.modal-content').addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-    
-    // Form submission
-    modalForm.addEventListener('submit', function(e) {
+    // Form submission handler
+    document.getElementById('modal-form').addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Get form data
-        const formData = new FormData(modalForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const company = formData.get('company');
-        const phone = formData.get('phone');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
         
-        // Here you would typically send the data to your server
-        console.log('Form submitted:', { name, email, company, phone });
+        // Show loading state
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline';
+        submitBtn.disabled = true;
         
-        // Show success message
-        modalForm.innerHTML = `
-            <div class="success-message">
-                <svg xmlns="http://www.w3.org/2000/svg" class="success-icon" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <h3>Thank You!</h3>
-                <p>You've been added to our waitlist. We'll notify you when InferX is ready for early access.</p>
-                <button type="button" class="btn-primary close-success">Close</button>
-            </div>
-        `;
+        // Collect form data
+        const formData = new FormData(e.target);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            company: formData.get('company'),
+            role: formData.get('role'),
+            usecase: formData.get('usecase') || ''
+        };
         
-        // Add event listener to the new close button
-        document.querySelector('.close-success').addEventListener('click', closeModalFunc);
+        try {
+            // Send to Google Apps Script
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Required for Google Apps Script
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            // Since mode is 'no-cors', we can't read the response
+            // We'll assume success if no error was thrown
+            
+            // Show success message
+            document.getElementById('modal-form').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Track conversion in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'signup', {
+                    'event_category': 'conversion',
+                    'event_label': 'early_access',
+                    'value': 1
+                });
+            }
+            
+            // Reset form for next use
+            e.target.reset();
+            
+            // Update spots remaining (decrease by 1)
+            updateSpotsRemaining(true);
+            
+        } catch (error) {
+            // Show error message
+            document.getElementById('modal-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('error-message').style.display = 'block';
+            
+            console.error('Form submission error:', error);
+        } finally {
+            // Reset button state
+            btnText.style.display = 'inline';
+            btnLoader.style.display = 'none';
+            submitBtn.disabled = false;
+        }
     });
     
-    // Add smooth scrolling for anchor links
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
+            const target = document.querySelector(targetId);
+            if (target) {
+                target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -87,28 +146,123 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Ensure cursor visibility
-    function setupBlinkingCursor() {
-        const cursor = document.querySelector('.cursor');
-        if (cursor) {
-            cursor.style.display = 'inline-block';
+    // Update spots remaining
+    let currentSpots = 387; // Starting number
+    
+    function updateSpotsRemaining(decrease = false) {
+        if (decrease) {
+            currentSpots = Math.max(0, currentSpots - 1);
+        }
+        
+        const spotsElements = document.querySelectorAll('.spots-left');
+        spotsElements.forEach(el => {
+            el.textContent = `${currentSpots} spots remaining`;
+        });
+        
+        // Also update in the CTA caption
+        const ctaCaption = document.querySelector('.cta-caption');
+        if (ctaCaption) {
+            ctaCaption.innerHTML = `Limited to 500 spots • No credit card required • ${currentSpots} spots remaining`;
         }
     }
     
-    // Call the function to set up the cursor
-    setupBlinkingCursor();
+    // Initialize spots on page load
+    updateSpotsRemaining();
     
-    // Add CSS class to make cards animated on scroll
-    const cards = document.querySelectorAll('.card');
-    const observer = new IntersectionObserver(entries => {
+    // Navbar scroll effect
+    let lastScroll = 0;
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            navbar.style.backdropFilter = 'blur(20px)';
+        } else {
+            navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, observerOptions);
     
-    cards.forEach(card => {
-        observer.observe(card);
+    // Observe all sections and cards
+    const elementsToAnimate = document.querySelectorAll('.section, .feature-card, .pricing-card, .testimonial-card, .faq-item');
+    elementsToAnimate.forEach(el => {
+        observer.observe(el);
     });
+    
+    // Add hover effect to example cards
+    const exampleCards = document.querySelectorAll('.example-card');
+    exampleCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Demo placeholder click handler
+    const demoPlaceholder = document.querySelector('.demo-placeholder');
+    if (demoPlaceholder) {
+        demoPlaceholder.addEventListener('click', function() {
+            // You can add video modal or redirect to demo
+            alert('Demo video coming soon! For now, request early access to see the platform in action.');
+        });
+    }
+    
+    // Add loading animation to buttons on click
+    document.querySelectorAll('.btn-primary').forEach(button => {
+        if (!button.classList.contains('open-signup') && button.id !== 'submit-btn') {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        }
+    });
+    
+    // Mobile menu toggle (if you add a hamburger menu later)
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    }
+    
+    // Console Easter egg
+    console.log('%c🚀 Welcome to Sigmaleap!', 'font-size: 20px; font-weight: bold; color: #0066FF;');
+    console.log('%cWe\'re building the future of software development. Join us!', 'font-size: 14px; color: #10B981;');
+    console.log('%cInterested in joining our team? Email us at careers@sigmaleap.ai', 'font-size: 12px; color: #666;');
+});
+
+// Page performance tracking
+window.addEventListener('load', function() {
+    // Track page load time
+    if (typeof gtag !== 'undefined' && performance.timing) {
+        const pageLoadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        gtag('event', 'timing_complete', {
+            'name': 'load',
+            'value': pageLoadTime,
+            'event_category': 'performance'
+        });
+    }
 });
