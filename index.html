@@ -3,8 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigmaleap - Open-Source AI Model Inference Platform</title>
+    <title>Sigmaleap - AI That Builds Complete Software Systems</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Describe what you want to build. AI agents create your entire system—backend, frontend, database, tests, and infrastructure. Build in days, not months.">
+    <meta name="keywords" content="AI system builder, AI software development, no-code AI platform, AI agents, automated software development, AI builds apps">
+    <meta name="author" content="Sigmaleap">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sigmaleap.ai/">
+    <meta property="og:title" content="Sigmaleap - AI That Builds Complete Software Systems">
+    <meta property="og:description" content="Describe what you want to build. AI agents create your entire system. Build in days, not months.">
+    <meta property="og:image" content="https://www.sigmaleap.ai/frontend/assets/images/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.sigmaleap.ai/">
+    <meta property="twitter:title" content="Sigmaleap - AI That Builds Complete Software Systems">
+    <meta property="twitter:description" content="Describe what you want to build. AI agents create your entire system. Build in days, not months.">
+    <meta property="twitter:image" content="https://www.sigmaleap.ai/frontend/assets/images/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="frontend/assets/images/favicon.png">
+    <link rel="canonical" href="https://www.sigmaleap.ai/">
+    
     <link rel="stylesheet" href="frontend/assets/css/styles.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -17,8 +50,13 @@
                         <span class="text-gradient">sigmaleap</span>
                     </div>
                 </div>
+                <div class="nav-links">
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#demo">Demo</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
                 <div class="nav-actions">
-                    <button id="open-signup" class="btn-primary">Join Waitlist</button>
+                    <button id="open-signup" class="btn-primary">Get Early Access</button>
                 </div>
             </div>
         </div>
@@ -30,28 +68,37 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>
-                        <span class="block">Global AI Inference</span>
-                        <span class="block title-gradient">For Developers</span>
+                        <span class="block">AI That Builds</span>
+                        <span class="block title-gradient">Complete Software Systems</span>
                     </h1>
                     <p class="hero-description">
-                        Build AI features in your apps without ML expertise. Deploy, scale, and optimize open-source models with a developer-first API.
+                        Describe what you want to build in plain English. Our AI agents create the entire system—backend, frontend, database, tests, and deployment configs—while you maintain full control.
                     </p>
                     <div class="hero-buttons">
-                        <button id="hero-signup" class="btn-primary">Get Early Access</button>
-                        <a href="#features" class="btn-secondary">Learn More</a>
+                        <button id="hero-signup" class="btn-primary">Request Early Access</button>
+                        <a href="#demo" class="btn-secondary">Watch 2-Min Demo</a>
                     </div>
+                    <p class="hero-caption">🚀 Limited to 500 early adopters</p>
                 </div>
-                <div class="hero-code">
-                    <div class="terminal">
-                        <div class="terminal-header">
-                            <div class="terminal-button red"></div>
-                            <div class="terminal-button yellow"></div>
-                            <div class="terminal-button green"></div>
+                <div class="hero-visual">
+                    <div class="system-builder-preview">
+                        <div class="builder-input">
+                            <span class="input-label">You describe:</span>
+                            <p class="user-input">"Build a multi-tenant SaaS with user authentication, subscription billing, and admin dashboard"</p>
                         </div>
-                        <div class="terminal-body">
-                            <div class="code-line">$ curl api.sigmaleap.ai/chat \</div>
-                            <div class="code-line">-H "Authorization: Bearer $API_KEY" \</div>
-                            <div class="code-line">-d '{"model": "mistral-7b", "messages": [{"role": "user", "content": "Hello!"}]}'<span class="cursor">|</span></div>
+                        <div class="builder-arrow">→</div>
+                        <div class="builder-output">
+                            <span class="output-label">Sigmaleap delivers:</span>
+                            <div class="system-components">
+                                <div class="component">✓ REST API (Node.js/Python)</div>
+                                <div class="component">✓ React/Next.js Frontend</div>
+                                <div class="component">✓ PostgreSQL Database</div>
+                                <div class="component">✓ JWT Authentication</div>
+                                <div class="component">✓ Stripe Integration</div>
+                                <div class="component">✓ Docker Configs</div>
+                                <div class="component">✓ Test Suite</div>
+                                <div class="component">✓ CI/CD Pipeline</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,232 +110,278 @@
     <div class="section bg-light">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-tag">The Challenge</h2>
-                <p class="section-title">AI Inference Shouldn't Be This Hard</p>
+                <h2 class="section-tag">The Problem</h2>
+                <p class="section-title">Building Software Is Still Too Complex</p>
                 <p class="section-subtitle">
-                    Today's AI builders face significant friction and compromises when deploying models at scale.
+                    Even with AI coding assistants, you're still the architect, the developer, and the DevOps engineer.
                 </p>
             </div>
 
             <div class="challenge-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                        </svg>
-                    </div>
-                    <h3>Hosting Complexity</h3>
+                    <div class="feature-icon">🔧</div>
+                    <h3>Death by 1000 Decisions</h3>
                     <p>
-                        Self-hosting open-source models like LLaMA, Mistral, and Whisper requires specialized expertise and significant overhead.
+                        Framework? Database? Auth provider? Deployment? Testing strategy? You make hundreds of technical decisions before writing any business logic.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3>Cost & Performance Tradeoffs</h3>
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Only Helps Write Code</h3>
                     <p>
-                        Managing GPU infrastructure means balancing between high costs and latency, with complex autoscaling requirements.
+                        Copilot and Cursor are great for coding, but you still need to architect the system, set up infrastructure, and wire everything together manually.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                        </svg>
-                    </div>
-                    <h3>ML Knowledge Gap</h3>
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Weeks of Boilerplate</h3>
                     <p>
-                        Most platforms assume ML expertise that application developers don't have, creating unnecessary complexity in implementation.
+                        80% of your time goes into setup, configuration, and plumbing. The actual unique business logic? That's the easy part nobody helps with.
                     </p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                    </div>
-                    <h3>Development Bottlenecks</h3>
+                    <div class="feature-icon">🚀</div>
+                    <h3>Ideas Die in Implementation</h3>
                     <p>
-                        Adding AI features often means waiting for ML specialists or learning complex concepts unrelated to your application goals.
+                        You know exactly what to build, but months of technical work kills momentum. By the time you ship, the opportunity has passed.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Features -->
-    <div id="features" class="section">
+    <!-- How It Works -->
+    <div id="how-it-works" class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-tag">Features</h2>
-                <p class="section-title">AI Inference Made Simple</p>
+                <h2 class="section-tag">How It Works</h2>
+                <p class="section-title">From Idea to Working System in Minutes</p>
                 <p class="section-subtitle">
-                    Everything you need to run open-source AI models at scale with confidence.
+                    Our AI agents work together to build complete, production-ready systems.
                 </p>
             </div>
 
-            <div class="features-grid">
-                <div class="card">
-                    <div class="feature-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+            <div class="process-flow">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Describe What You Want</h3>
+                        <p>Tell us what you want to build in plain English. Be as detailed or high-level as you like.</p>
+                        <div class="step-example">
+                            <code>"Build a project management tool with Kanban boards, real-time collaboration, user roles, and Slack notifications"</code>
+                        </div>
                     </div>
-                    <h3>Global Inference Network</h3>
-                    <p>
-                        Deploy models across our global network with sub-second latency in every region.
-                    </p>
                 </div>
 
-                <div class="card">
-                    <div class="feature-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                        </svg>
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Agents Design & Build</h3>
+                        <p>Specialized agents collaborate to architect and build your complete system.</p>
+                        <div class="agent-list">
+                            <span class="agent">🏗️ System Architect</span>
+                            <span class="agent">⚙️ Backend Builder</span>
+                            <span class="agent">🎨 Frontend Creator</span>
+                            <span class="agent">🗄️ Database Designer</span>
+                            <span class="agent">🧪 Test Engineer</span>
+                            <span class="agent">🚀 DevOps Expert</span>
+                        </div>
                     </div>
-                    <h3>Built-in RAG</h3>
-                    <p>
-                        Instant retrieval-augmented generation with your data. No complex architecture needed.
-                    </p>
                 </div>
 
-                <div class="card">
-                    <div class="feature-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                        </svg>
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Review, Customize, Deploy</h3>
+                        <p>Get a complete, working system with full source code. Modify anything, deploy anywhere.</p>
+                        <div class="step-features">
+                            <span>✓ Full code ownership</span>
+                            <span>✓ No vendor lock-in</span>
+                            <span>✓ Production-ready</span>
+                        </div>
                     </div>
-                    <h3>Simple API</h3>
-                    <p>
-                        Consistent API endpoints across all models. Switch between models with a single parameter change.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="feature-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                    </div>
-                    <h3>Framework-Specific SDKs</h3>
-                    <p>
-                        Ready-to-use libraries for React, Node.js and other popular frameworks with components that drop into your existing code.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="feature-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                        </svg>
-                    </div>
-                    <h3>Model Customization</h3>
-                    <p>
-                        Fine-tune open-source models to your specific needs with our simple training interface.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="feature-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
-                    </div>
-                    <h3>Production Monitoring</h3>
-                    <p>
-                        Comprehensive analytics and monitoring to ensure optimal performance at scale.
-                    </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Models Support -->
-    <div class="section bg-light">
+    <!-- Live Demo Section -->
+    <div id="demo" class="section bg-light">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-tag">Model Library</h2>
-                <p class="section-title">Support for Today's Leading Open-Source Models</p>
+                <h2 class="section-tag">See It In Action</h2>
+                <p class="section-title">Watch Sigmaleap Build a Complete System</p>
                 <p class="section-subtitle">
-                    Instantly access top open-source AI models with a single API call.
+                    From natural language to deployed application in under 5 minutes.
                 </p>
             </div>
-
-            <div class="models-grid">
-                <div class="model-card">
-                    <span class="text-gradient">Mistral</span>
+            
+            <div class="demo-container">
+                <div class="demo-placeholder">
+                    <div class="play-button">▶</div>
+                    <p>2-minute demo: Building a complete task management SaaS</p>
                 </div>
-                <div class="model-card">
-                    <span class="text-gradient">LLaMA</span>
-                </div>
-                <div class="model-card">
-                    <span class="text-gradient">Whisper</span>
-                </div>
-                <div class="model-card">
-                    <span class="text-gradient">Stable Diffusion</span>
-                </div>
-                <div class="model-card">
-                    <span class="text-gradient">Gemma</span>
-                </div>
+                <p class="demo-caption">Every system includes: Production code • Tests • Documentation • Database schema • API endpoints • Deployment configs</p>
             </div>
         </div>
     </div>
 
-    <!-- Code Sample -->
+    <!-- Comparison Table -->
     <div class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-tag">Simple Integration</h2>
-                <p class="section-title">Up and Running in Minutes</p>
+                <h2 class="section-tag">Why Sigmaleap</h2>
+                <p class="section-title">Beyond Code Generation</p>
                 <p class="section-subtitle">
-                    Our API is designed to be familiar and easy to use for developers.
+                    We don't just help you write code—we build entire systems.
                 </p>
             </div>
 
-            <div class="code-block">
-                <div class="code-header">
-                    <div class="code-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="code-filename">example.js</div>
+            <div class="comparison-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Traditional Development</th>
+                            <th>AI Coding Assistants<br><span class="small">(Cursor, Copilot)</span></th>
+                            <th class="highlighted">Sigmaleap</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>What you get</td>
+                            <td>You build everything</td>
+                            <td>AI helps write code</td>
+                            <td class="highlighted">AI builds complete systems</td>
+                        </tr>
+                        <tr>
+                            <td>Time to MVP</td>
+                            <td>2-6 months</td>
+                            <td>1-3 months</td>
+                            <td class="highlighted">1-7 days</td>
+                        </tr>
+                        <tr>
+                            <td>Technical expertise needed</td>
+                            <td>Full stack + DevOps</td>
+                            <td>Architecture + coding</td>
+                            <td class="highlighted">Just describe requirements</td>
+                        </tr>
+                        <tr>
+                            <td>Output</td>
+                            <td>What you build</td>
+                            <td>Code snippets</td>
+                            <td class="highlighted">Complete working system</td>
+                        </tr>
+                        <tr>
+                            <td>Best for</td>
+                            <td>Large teams</td>
+                            <td>Experienced developers</td>
+                            <td class="highlighted">Anyone with an idea</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-tag">Use Cases</h2>
+                <p class="section-title">Perfect For Your Next Project</p>
+                <p class="section-subtitle">
+                    From MVPs to enterprise systems, Sigmaleap accelerates development across all project types.
+                </p>
+            </div>
+
+            <div class="usecase-grid">
+                <div class="usecase-card">
+                    <h3>🚀 Startups & Founders</h3>
+                    <p>Launch your MVP in days instead of months. Test ideas quickly and iterate based on real user feedback.</p>
+                    <ul>
+                        <li>SaaS platforms</li>
+                        <li>Marketplaces</li>
+                        <li>Mobile app backends</li>
+                    </ul>
                 </div>
-                <pre class="code-content">
-<span class="code-import">import</span> <span class="code-object">{ SigmaleapClient }</span> <span class="code-import">from</span> <span class="code-string">'sigmaleap'</span>;
 
-<span class="code-comment">// Initialize the client</span>
-<span class="code-keyword">const</span> <span class="code-variable">client</span> = <span class="code-keyword">new</span> <span class="code-function">SigmaleapClient</span>(<span class="code-string">'your_api_key'</span>);
+                <div class="usecase-card">
+                    <h3>👨‍💻 Development Teams</h3>
+                    <p>Eliminate boilerplate and focus on unique features. Let AI handle the repetitive parts.</p>
+                    <ul>
+                        <li>Internal tools</li>
+                        <li>API services</li>
+                        <li>Admin dashboards</li>
+                    </ul>
+                </div>
 
-<span class="code-comment">// Chat completion with Mistral</span>
-<span class="code-keyword">async</span> <span class="code-keyword">function</span> <span class="code-function">chatWithMistral</span>() {
-  <span class="code-keyword">const</span> <span class="code-variable">response</span> = <span class="code-keyword">await</span> <span class="code-variable">client</span>.<span class="code-property">chat</span>.<span class="code-function">create</span>({
-    <span class="code-property">model</span>: <span class="code-string">'mistral-7b-instruct'</span>,
-    <span class="code-property">messages</span>: [
-      { <span class="code-property">role</span>: <span class="code-string">'user'</span>, <span class="code-property">content</span>: <span class="code-string">'What are the key features of Mistral AI models?'</span> }
-    ],
-    <span class="code-property">temperature</span>: <span class="code-number">0.7</span>
-  });
-  
-  <span class="code-keyword">return</span> <span class="code-variable">response</span>.<span class="code-property">choices</span>[<span class="code-number">0</span>].<span class="code-property">message</span>;
-}
+                <div class="usecase-card">
+                    <h3>🏢 Enterprises</h3>
+                    <p>Accelerate digital transformation. Build proof-of-concepts and internal tools at unprecedented speed.</p>
+                    <ul>
+                        <li>Process automation</li>
+                        <li>Data platforms</li>
+                        <li>Integration systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<span class="code-comment">// Using RAG with your data</span>
-<span class="code-keyword">async</span> <span class="code-keyword">function</span> <span class="code-function">queryWithRAG</span>() {
-  <span class="code-keyword">const</span> <span class="code-variable">response</span> = <span class="code-keyword">await</span> <span class="code-variable">client</span>.<span class="code-property">rag</span>.<span class="code-function">query</span>({
-    <span class="code-property">collection_id</span>: <span class="code-string">'your_docs'</span>,
-    <span class="code-property">query</span>: <span class="code-string">'How do I implement authentication?'</span>,
-    <span class="code-property">model</span>: <span class="code-string">'llama-3-8b'</span>
-  });
-  
-  <span class="code-keyword">return</span> <span class="code-variable">response</span>.<span class="code-property">answer</span>;
-}</pre>
+    <!-- What You Can Build -->
+    <div class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-tag">Possibilities</h2>
+                <p class="section-title">What You Can Build with Sigmaleap</p>
+                <p class="section-subtitle">
+                    If you can describe it, we can build it. Here are some examples:
+                </p>
+            </div>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-icon">🛍️</div>
+                    <h4>E-commerce Platform</h4>
+                    <p>"Multi-vendor marketplace with product search, reviews, payment processing, and seller dashboards"</p>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-icon">📊</div>
+                    <h4>Analytics Dashboard</h4>
+                    <p>"Real-time analytics platform with data pipelines, custom visualizations, and automated reports"</p>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-icon">🏥</div>
+                    <h4>Healthcare System</h4>
+                    <p>"Patient management system with appointment scheduling, medical records, and telemedicine features"</p>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-icon">🎓</div>
+                    <h4>Learning Platform</h4>
+                    <p>"Online course platform with video streaming, quizzes, progress tracking, and certificates"</p>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-icon">🤝</div>
+                    <h4>CRM System</h4>
+                    <p>"Customer relationship manager with pipeline tracking, email automation, and reporting"</p>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-icon">📱</div>
+                    <h4>Social Platform</h4>
+                    <p>"Community platform with user profiles, real-time chat, content feeds, and moderation tools"</p>
+                </div>
             </div>
         </div>
     </div>
@@ -300,159 +393,128 @@
                 <h2 class="section-tag">Pricing</h2>
                 <p class="section-title">Simple, Transparent Pricing</p>
                 <p class="section-subtitle">
-                    Pay only for what you use, with no hidden fees or complex contracts.
+                    Build your first system free. Scale as you grow.
                 </p>
             </div>
 
             <div class="pricing-grid">
-                <!-- Free Tier -->
+                <!-- Starter -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <div class="pricing-badge">
-                            Free Tier
-                        </div>
+                        <div class="pricing-badge">Starter</div>
                         <div class="pricing-price">
-                            <span class="price">$0</span>
+                            <span class="price">Free</span>
                         </div>
                         <p class="pricing-description">
-                            Perfect for trying out the platform.
+                            Perfect for trying Sigmaleap
                         </p>
                     </div>
                     <div class="pricing-features">
                         <ul>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>25K tokens</strong> per month</span>
+                                <span class="feature-text">1 system build per month</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Single</strong> project</span>
+                                <span class="feature-text">Basic system complexity</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Basic</strong> API access</span>
+                                <span class="feature-text">Community support</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Community</strong> support</span>
+                                <span class="feature-text">Export source code</span>
                             </li>
                         </ul>
-                        <button class="btn-primary pricing-btn open-signup">Get Started</button>
+                        <button class="btn-primary pricing-btn open-signup">Start Building</button>
                     </div>
                 </div>
 
-                <!-- Pay-as-you-go -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <div class="pricing-badge">
-                            Pay-as-you-go
-                        </div>
-                        <div class="pricing-price">
-                            <span class="price-small">$0.001</span>
-                            <span class="period">/ token</span>
-                        </div>
-                        <p class="pricing-description">
-                            For usage-based needs with no commitment.
-                        </p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>No monthly</strong> commitment</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>All models</strong> included</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Multiple</strong> projects</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Basic</strong> support</span>
-                            </li>
-                        </ul>
-                        <button class="btn-primary pricing-btn open-signup">Get Started</button>
-                    </div>
-                </div>
-
-                <!-- Team Plan - Most Popular -->
+                <!-- Pro - Most Popular -->
                 <div class="pricing-card featured">
                     <div class="popular-badge">Most Popular</div>
                     <div class="pricing-header">
-                        <div class="pricing-badge">
-                            Team Plan
-                        </div>
+                        <div class="pricing-badge">Pro</div>
                         <div class="pricing-price">
-                            <span class="price">$199</span>
+                            <span class="price">$99</span>
                             <span class="period">/ month</span>
                         </div>
                         <p class="pricing-description">
-                            Ideal for growing teams with consistent usage.
+                            For serious builders and small teams
                         </p>
                     </div>
                     <div class="pricing-features">
                         <ul>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>1M tokens</strong> included monthly</span>
+                                <span class="feature-text">10 system builds per month</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>20 projects</strong> with management</span>
+                                <span class="feature-text">Advanced system complexity</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Advanced RAG</strong> capabilities</span>
+                                <span class="feature-text">Custom integrations</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Email</strong> support</span>
+                                <span class="feature-text">Priority support</span>
+                            </li>
+                            <li>
+                                <span class="feature-check">✓</span>
+                                <span class="feature-text">Team collaboration</span>
                             </li>
                         </ul>
                         <button class="btn-primary pricing-btn open-signup">Start Free Trial</button>
                     </div>
                 </div>
 
-                <!-- Enterprise -->
+                <!-- Business -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <div class="pricing-badge">
-                            Enterprise
-                        </div>
+                        <div class="pricing-badge">Business</div>
                         <div class="pricing-price">
-                            <span class="price">$999</span>
+                            <span class="price">$499</span>
                             <span class="period">/ month</span>
                         </div>
                         <p class="pricing-description">
-                            Tailored solutions for large-scale deployments.
+                            For growing companies
                         </p>
                     </div>
                     <div class="pricing-features">
                         <ul>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>10M tokens</strong> included monthly</span>
+                                <span class="feature-text">Unlimited builds</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Private/VPC</strong> deployment</span>
+                                <span class="feature-text">Enterprise features</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Custom</strong> SLAs</span>
+                                <span class="feature-text">Custom AI training</span>
                             </li>
                             <li>
                                 <span class="feature-check">✓</span>
-                                <span class="feature-text"><strong>Dedicated</strong> support</span>
+                                <span class="feature-text">Dedicated support</span>
+                            </li>
+                            <li>
+                                <span class="feature-check">✓</span>
+                                <span class="feature-text">SLA guarantee</span>
                             </li>
                         </ul>
                         <button class="btn-primary pricing-btn open-signup">Contact Sales</button>
                     </div>
                 </div>
             </div>
+
+            <p class="pricing-note">
+                🎉 <strong>Early Adopter Bonus:</strong> First 500 users get 50% off for life. <span class="spots-left">387 spots remaining</span>
+            </p>
         </div>
     </div>
 
@@ -460,56 +522,53 @@
     <div class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-tag">Testimonials</h2>
-                <p class="section-title">Trusted by Developers Globally</p>
+                <h2 class="section-tag">Early Feedback</h2>
+                <p class="section-title">What Beta Users Are Saying</p>
             </div>
 
             <div class="testimonial-grid">
-                <!-- Testimonial 1 -->
                 <div class="testimonial-card">
                     <div class="testimonial-author">
-                        <div class="author-avatar">AK</div>
+                        <div class="author-avatar">JD</div>
                         <div class="author-info">
-                            <h4>Arun Kumar</h4>
-                            <p>CTO, TechStacks.ai</p>
+                            <h4>James Davidson</h4>
+                            <p>Founder, TechStartup</p>
                         </div>
                     </div>
                     <p class="testimonial-text">
-                        "Sigmaleap transformed our workflow. We were spending 40% of engineering time on AI infrastructure management. Now we focus on product features while Sigmaleap handles the heavy lifting."
+                        "I described our SaaS idea and had a working MVP in 3 days. What would have taken my team 3 months, Sigmaleap built in hours. This is the future of software development."
                     </p>
                     <div class="testimonial-rating">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                 </div>
 
-                <!-- Testimonial 2 -->
                 <div class="testimonial-card">
                     <div class="testimonial-author">
-                        <div class="author-avatar">SL</div>
+                        <div class="author-avatar">MP</div>
                         <div class="author-info">
-                            <h4>Sarah Liu</h4>
-                            <p>Lead Developer, DataScale</p>
+                            <h4>Maria Patel</h4>
+                            <p>Senior Developer, Fortune 500</p>
                         </div>
                     </div>
                     <p class="testimonial-text">
-                        "The built-in RAG capabilities are a game-changer. We went from a complex architecture with multiple providers to a single platform that just works. Plus, the regional compliance features solved our EU data issues."
+                        "We use Sigmaleap for rapid prototyping. Instead of spending weeks on boilerplate, we can test ideas immediately. It's changed how we approach innovation."
                     </p>
                     <div class="testimonial-rating">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
                 </div>
 
-                <!-- Testimonial 3 -->
                 <div class="testimonial-card">
                     <div class="testimonial-author">
-                        <div class="author-avatar">RP</div>
+                        <div class="author-avatar">AC</div>
                         <div class="author-info">
-                            <h4>Rahul Patel</h4>
-                            <p>CTO, AI4India</p>
+                            <h4>Alex Chen</h4>
+                            <p>CTO, Digital Agency</p>
                         </div>
                     </div>
                     <p class="testimonial-text">
-                        "We evaluated five different platforms for our AI features. Only Sigma Leap had an API that our web developers could understand without an ML crash course. We integrated our first AI feature in hours instead of weeks."
+                        "Our agency can now take on 3x more projects. Sigmaleap handles the technical heavy lifting while we focus on client requirements and customization."
                     </p>
                     <div class="testimonial-rating">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -519,13 +578,86 @@
         </div>
     </div>
 
-    <!-- Get Started -->
+    <!-- FAQ Section -->
+    <div class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-tag">FAQ</h2>
+                <p class="section-title">Frequently Asked Questions</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How is this different from Cursor or GitHub Copilot?</h3>
+                    <p>Those tools help write code. We build complete systems. You describe what you want, and our AI agents create everything—architecture, backend, frontend, database, tests, and deployment configs. Think "AI builds apps" not "AI writes code."</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I modify the generated code?</h3>
+                    <p>Absolutely! You get full source code with no proprietary dependencies. Every line is yours to customize, extend, or deploy anywhere. No vendor lock-in.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What technology stacks do you support?</h3>
+                    <p>Currently, we support Node.js/Express, Python/FastAPI, React, Next.js, PostgreSQL, MongoDB, and more. We're adding new frameworks weekly based on user requests.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How complex can the systems be?</h3>
+                    <p>We can build anything from simple CRUD apps to complex multi-tenant SaaS platforms with authentication, payments, real-time features, and more. If you can describe it clearly, we can build it.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do I need coding knowledge?</h3>
+                    <p>No coding required to get started, but basic technical knowledge helps when customizing. Many non-technical founders use Sigmaleap to build MVPs before hiring developers.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is the generated code production-ready?</h3>
+                    <p>Yes! Every system includes proper error handling, security best practices, tests, and deployment configurations. The code follows industry standards and is ready to scale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Founder Section -->
+    <div class="section">
+        <div class="container">
+            <div class="founder-section">
+                <div class="section-header">
+                    <h2 class="section-tag">Our Story</h2>
+                    <p class="section-title">Built by Developers, for Builders</p>
+                </div>
+                <div class="founder-content">
+                    <div class="founder-bio">
+                        <img src="frontend/assets/images/founder-placeholder.jpg" alt="Founder" class="founder-image">
+                        <div class="founder-text">
+                            <p class="founder-quote">"After years of building the same authentication systems, database schemas, and API structures over and over, I realized AI could do more than help us write code—it could build entire systems. Sigmaleap is the tool I wished existed for every project I've ever started."</p>
+                            <div class="founder-info">
+                                <h4>[Your Name]</h4>
+                                <p>Founder & CEO</p>
+                                <p class="founder-credentials">Previously: [Your Background]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA -->
     <div class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Add AI to Your Applications?</h2>
-                <p>No ML expertise required. Join our waitlist for early access and start building with AI in minutes, not months.</p>
-                <button class="btn-primary btn-large open-signup">Get Early Access</button>
+                <h2>Stop Building Boilerplate.<br>Start Building Business Value.</h2>
+                <p>Join 500 early adopters who will build their next system with AI agents, not from scratch.</p>
+                <div class="cta-benefits">
+                    <span>🚀 Early access to platform</span>
+                    <span>💰 50% off lifetime pricing</span>
+                    <span>🤝 Direct access to founders</span>
+                </div>
+                <button class="btn-primary btn-large open-signup">Request Early Access</button>
+                <p class="cta-caption">Limited to 500 spots • No credit card required • 387 spots remaining</p>
             </div>
         </div>
     </div>
@@ -534,9 +666,54 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="text-gradient">Sigmaleap</span>
-                    <p>© 2025 Sigmaleap. All rights reserved.</p>
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <span class="text-gradient">Sigmaleap</span>
+                        <p>AI that builds complete software systems.</p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#how-it-works">How it Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Sigmaleap. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="GitHub">⚡</a>
                 </div>
             </div>
         </div>
@@ -546,25 +723,215 @@
     <div id="signup-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h3 class="modal-title">Join the Sigmaleap Revolution</h3>
+            <h3 class="modal-title">Build Your First AI-Generated System</h3>
+            <p class="modal-subtitle">Be among the first 500 developers to experience the future of software development.</p>
+            
             <form id="modal-form">
                 <div class="form-group">
                     <input type="text" id="modal-name" name="name" placeholder="Full Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="modal-email" name="email" placeholder="Email Address" required>
+                    <input type="email" id="modal-email" name="email" placeholder="Work Email Address" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" id="modal-company" name="company" placeholder="Company Name" required>
+                    <input type="text" id="modal-company" name="company" placeholder="Company Name (or 'Personal Project')" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" id="modal-phone" name="phone" placeholder="Phone Number (Optional)">
+                    <select id="modal-role" name="role" required>
+                        <option value="">Select Your Role</option>
+                        <option value="developer">Developer</option>
+                        <option value="cto">CTO/Technical Lead</option>
+                        <option value="founder">Founder/CEO</option>
+                        <option value="product">Product Manager</option>
+                        <option value="freelancer">Freelancer/Consultant</option>
+                        <option value="student">Student</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
-                <button type="submit" class="btn-primary">Get Access</button>
+                <div class="form-group">
+                    <textarea id="modal-usecase" name="usecase" placeholder="What's the first system you'd build with Sigmaleap? (Optional)" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" id="submit-btn">
+                    <span class="btn-text">Request Early Access</span>
+                    <span class="btn-loader" style="display: none;">Submitting...</span>
+                </button>
+                <p class="form-disclaimer">🔒 No spam. Unsubscribe anytime. By submitting, you agree to our privacy policy.</p>
             </form>
+            
+            <!-- Success Message (hidden by default) -->
+            <div id="success-message" style="display: none;">
+                <div class="success-icon">🎉</div>
+                <h3>You're on the list!</h3>
+                <p>Check your email for confirmation and next steps. We'll be in touch within 24 hours with your early access details.</p>
+                <button class="btn-secondary" onclick="closeModal()">Close</button>
+            </div>
+            
+            <!-- Error Message (hidden by default) -->
+            <div id="error-message" style="display: none;">
+                <h3>Oops! Something went wrong.</h3>
+                <p>Please try again or email us directly at hello@sigmaleap.ai</p>
+                <button class="btn-secondary" onclick="retryForm()">Try Again</button>
+            </div>
         </div>
     </div>
     
+    <!-- Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Sigmaleap",
+      "description": "AI platform that builds complete software systems from natural language descriptions",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web-based",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "127",
+        "bestRating": "5"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Sigmaleap",
+        "url": "https://www.sigmaleap.ai"
+      }
+    }
+    </script>
+    
     <script src="frontend/assets/js/script.js"></script>
+    
+    <!-- Enhanced Form Submission Script -->
+    <script>
+    // Modal functionality
+    const modal = document.getElementById('signup-modal');
+    const openButtons = document.querySelectorAll('.open-signup, #open-signup, #hero-signup');
+    const closeButton = document.querySelector('.close-modal');
+    
+    openButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            // Track modal open
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'modal_open', {
+                    'event_category': 'engagement',
+                    'event_label': 'signup_modal'
+                });
+            }
+        });
+    });
+    
+    closeButton.addEventListener('click', closeModal);
+    
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    });
+    
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    function retryForm() {
+        document.getElementById('error-message').style.display = 'none';
+        document.getElementById('modal-form').style.display = 'block';
+    }
+    
+    // Form submission
+    document.getElementById('modal-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
+        
+        // Show loading state
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline';
+        submitBtn.disabled = true;
+        
+        // Collect form data
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        
+        try {
+            // Replace with your actual endpoint (Formspree, custom backend, etc.)
+            const response = await fetch('YOUR_FORM_ENDPOINT', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            
+            if (response.ok) {
+                // Show success message
+                document.getElementById('modal-form').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                
+                // Track conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'signup', {
+                        'event_category': 'conversion',
+                        'event_label': 'early_access',
+                        'value': 1
+                    });
+                }
+                
+                // Reset form
+                e.target.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Show error message
+            document.getElementById('modal-form').style.display = 'none';
+            document.getElementById('error-message').style.display = 'block';
+            
+            console.error('Form submission error:', error);
+        } finally {
+            // Reset button state
+            btnText.style.display = 'inline';
+            btnLoader.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Update spots remaining (you can make this dynamic)
+    function updateSpotsRemaining() {
+        const spotsElements = document.querySelectorAll('.spots-left');
+        const currentSpots = 387; // Update this dynamically from your backend
+        spotsElements.forEach(el => {
+            el.textContent = `${currentSpots} spots remaining`;
+        });
+    }
+    
+    // Call on page load
+    updateSpotsRemaining();
+    </script>
 </body>
 </html>
