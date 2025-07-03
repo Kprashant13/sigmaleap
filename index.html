@@ -636,54 +636,76 @@
             margin-bottom: var(--space-lg);
         }
 
-        /* Form Styles */
-        .form-group {
+        /* Login Modal Styles */
+        .login-modal-content {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+
+        .login-title {
+            font-size: 1.75rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .login-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        .google-login-btn {
+            background: white;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 1rem;
+            width: 100%;
+            justify-content: center;
             margin-bottom: var(--space-md);
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.875rem var(--space-sm);
-            background: var(--bg-dark);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            color: var(--text-primary);
-            transition: all var(--transition);
+        .google-login-btn:hover {
+            background: #f9fafb;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+        .google-icon {
+            width: 20px;
+            height: 20px;
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
+        .login-divider {
+            display: flex;
+            align-items: center;
+            margin: var(--space-lg) 0;
             color: var(--text-muted);
+            font-size: 0.875rem;
         }
 
-        .form-disclaimer {
+        .login-divider::before,
+        .login-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .login-divider span {
+            padding: 0 var(--space-md);
+        }
+
+        .login-disclaimer {
             font-size: 0.75rem;
             color: var(--text-muted);
-            text-align: center;
-            margin-top: var(--space-sm);
-        }
-
-        /* Success/Error Messages */
-        #success-message,
-        #error-message {
-            text-align: center;
-            padding: var(--space-lg);
-        }
-
-        .success-icon {
-            font-size: 4rem;
-            margin-bottom: var(--space-md);
+            margin-top: var(--space-md);
         }
 
         /* Responsive */
@@ -976,7 +998,7 @@
                     <a href="#comparison">Comparison</a>
                 </div>
                 <div class="nav-actions">
-                    <button class="btn-primary open-signup">Get Early Access</button>
+                    <button class="btn-primary" onclick="openLoginModal()">Login</button>
                 </div>
             </div>
         </div>
@@ -1406,92 +1428,102 @@
         </div>
     </footer>
     
-    <!-- Modal for Sign Up Form -->
-    <div id="signup-modal" class="modal">
+    <!-- Modal for Login -->
+    <div id="login-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3 class="modal-title">Get Early Access to SigmaleapAI</h3>
-            <p class="modal-subtitle">Join the first 100 entrepreneurs to build stores with AI. Free setup included.</p>
-            
-            <form id="modal-form">
-                <div class="form-group">
-                    <input type="text" id="modal-name" name="name" placeholder="Full Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="modal-email" name="email" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="modal-business" name="business" placeholder="What do you want to sell?" required>
-                </div>
-                <div class="form-group">
-                    <select id="modal-experience" name="experience" required>
-                        <option value="">E-commerce Experience</option>
-                        <option value="none">Complete beginner</option>
-                        <option value="some">Tried before but struggled</option>
-                        <option value="existing">Have existing store</option>
-                        <option value="expert">E-commerce expert</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-primary" id="submit-btn" style="width: 100%;">
-                    <span class="btn-text">Get Free Early Access</span>
-                    <span class="btn-loader" style="display: none;">Submitting...</span>
+            <span class="close-modal" onclick="closeLoginModal()">&times;</span>
+            <div class="login-modal-content">
+                <h3 class="login-title">Welcome to SigmaleapAI</h3>
+                <p class="login-subtitle">Sign in to start building your store</p>
+                
+                <button class="google-login-btn" onclick="loginWithGoogle()">
+                    <svg class="google-icon" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    Continue with Google
                 </button>
-                <p class="form-disclaimer">🔒 No spam. Free setup for first 100 users. By submitting, you agree to our privacy policy.</p>
-            </form>
-            
-            <!-- Success Message -->
-            <div id="success-message" style="display: none;">
-                <div class="success-icon">🎉</div>
-                <h3>You're in!</h3>
-                <p>Check your email for next steps. We'll send you early access within 24 hours.</p>
-                <button class="btn-secondary" onclick="closeModal()" style="width: 100%;">Close</button>
-            </div>
-            
-            <!-- Error Message -->
-            <div id="error-message" style="display: none;">
-                <h3>Oops! Something went wrong.</h3>
-                <p>Please try again or email us at hello@sigmaleapai.com</p>
-                <button class="btn-secondary" onclick="retryForm()" style="width: 100%;">Try Again</button>
+                
+                <div class="login-divider">
+                    <span>Quick & secure authentication</span>
+                </div>
+                
+                <p class="login-disclaimer">
+                    By continuing, you agree to our Terms of Service and Privacy Policy
+                </p>
             </div>
         </div>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Configuration - Update these URLs when ready
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFrZ52SoXxq5gdhXA7bWNITAbJc5wfMtLNwvKwFYrP3r7dovaCo2IoPOc22pK5THnA/exec';
+            // Configuration
             const APP_URL = 'https://app.sigmaleap.ai'; // Update when app is ready
             
             // Store the user's prompt globally
             let userPrompt = '';
             
             // Modal functionality
-            const modal = document.getElementById('signup-modal');
-            const openButtons = document.querySelectorAll('.open-signup');
-            const closeButton = document.querySelector('.close-modal');
+            const loginModal = document.getElementById('login-modal');
             
-            // Open modal function
-            function openModal() {
-                modal.style.display = 'block';
-                modal.classList.add('active');
+            // Open login modal function
+            function openLoginModal() {
+                loginModal.style.display = 'block';
+                loginModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
             
-            // Close modal function
-            function closeModal() {
-                modal.style.display = 'none';
-                modal.classList.remove('active');
+            // Close login modal function
+            function closeLoginModal() {
+                loginModal.style.display = 'none';
+                loginModal.classList.remove('active');
                 document.body.style.overflow = 'auto';
-                // Reset form states
-                document.getElementById('modal-form').style.display = 'block';
-                document.getElementById('success-message').style.display = 'none';
-                document.getElementById('error-message').style.display = 'none';
             }
             
-            // Retry form function
-            function retryForm() {
-                document.getElementById('error-message').style.display = 'none';
-                document.getElementById('modal-form').style.display = 'block';
+            // Google Login function
+            function loginWithGoogle() {
+                // In a real implementation, this would use Google OAuth
+                // For MVP, we'll simulate the login process
+                
+                // Simulate Google OAuth flow
+                console.log('Initiating Google OAuth...');
+                
+                // For now, we'll simulate a successful login
+                // In production, replace this with actual Google OAuth
+                setTimeout(() => {
+                    // Mark user as logged in
+                    localStorage.setItem('sigmaleapai_user', JSON.stringify({
+                        email: 'user@example.com',
+                        name: 'Demo User',
+                        loginDate: new Date().toISOString(),
+                        provider: 'google'
+                    }));
+                    
+                    closeLoginModal();
+                    
+                    // Redirect to app with prompt if available
+                    if (userPrompt) {
+                        const encodedPrompt = encodeURIComponent(userPrompt);
+                        window.location.href = `${APP_URL}?prompt=${encodedPrompt}`;
+                    } else {
+                        window.location.href = APP_URL;
+                    }
+                }, 1000);
+                
+                // TODO: Replace with actual Google OAuth implementation
+                /*
+                // Real Google OAuth implementation would look like:
+                google.accounts.oauth2.initTokenClient({
+                    client_id: 'YOUR_GOOGLE_CLIENT_ID',
+                    scope: 'email profile',
+                    callback: (response) => {
+                        // Handle successful login
+                        // Store user data and redirect to app
+                    }
+                }).requestAccessToken();
+                */
             }
             
             // Handle main prompt submission
@@ -1503,10 +1535,14 @@
                     return;
                 }
                 
+                if (!validatePrompt(promptText)) {
+                    return;
+                }
+                
                 // Store the prompt for later use
                 userPrompt = promptText;
                 
-                // Check if user is logged in (this would be replaced with actual auth check)
+                // Check if user is logged in
                 const isLoggedIn = localStorage.getItem('sigmaleapai_user') !== null;
                 
                 if (isLoggedIn) {
@@ -1514,10 +1550,8 @@
                     const encodedPrompt = encodeURIComponent(promptText);
                     window.location.href = `${APP_URL}?prompt=${encodedPrompt}`;
                 } else {
-                    // Show signup modal
-                    // Pre-fill the business field with the prompt
-                    document.getElementById('modal-business').value = promptText;
-                    openModal();
+                    // Show login modal
+                    openLoginModal();
                 }
             }
             
@@ -1527,26 +1561,37 @@
                 document.getElementById('main-prompt').focus();
             }
             
+            // Basic prompt validation
+            function validatePrompt(prompt) {
+                if (prompt.length > 1000) {
+                    alert('Please keep your business description under 1000 characters.');
+                    return false;
+                }
+                
+                // Basic spam/abuse detection
+                const spamKeywords = ['test', 'testing', 'asdf', 'qwerty'];
+                const lowerPrompt = prompt.toLowerCase();
+                if (spamKeywords.some(keyword => lowerPrompt.includes(keyword))) {
+                    if (prompt.length < 20) {
+                        alert('Please provide a more detailed business description.');
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+            
             // Make functions available globally
-            window.openModal = openModal;
-            window.closeModal = closeModal;
-            window.retryForm = retryForm;
+            window.openLoginModal = openLoginModal;
+            window.closeLoginModal = closeLoginModal;
+            window.loginWithGoogle = loginWithGoogle;
             window.handlePromptSubmit = handlePromptSubmit;
             window.fillExample = fillExample;
             
-            // Add click events
-            openButtons.forEach(button => {
-                button.addEventListener('click', openModal);
-            });
-            
-            if (closeButton) {
-                closeButton.addEventListener('click', closeModal);
-            }
-            
             // Close modal when clicking outside
             window.addEventListener('click', function(event) {
-                if (event.target == modal) {
-                    closeModal();
+                if (event.target == loginModal) {
+                    closeLoginModal();
                 }
             });
             
@@ -1557,79 +1602,20 @@
                 }
             });
             
-            // Form submission
-            document.getElementById('modal-form').addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const submitBtn = document.getElementById('submit-btn');
-                const btnText = submitBtn.querySelector('.btn-text');
-                const btnLoader = submitBtn.querySelector('.btn-loader');
-                
-                // Show loading state
-                btnText.style.display = 'none';
-                btnLoader.style.display = 'inline';
-                submitBtn.disabled = true;
-                
-                // Collect form data
-                const formData = new FormData(e.target);
-                const data = {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    business: formData.get('business'),
-                    experience: formData.get('experience'),
-                    product: 'SigmaleapAI',
-                    userPrompt: userPrompt, // Include the original prompt
-                    timestamp: new Date().toISOString()
-                };
-                
-                try {
-                    // Send to Google Apps Script
-                    await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    });
-                    
-                    // Store user session (simple approach for MVP)
-                    localStorage.setItem('sigmaleapai_user', JSON.stringify({
-                        email: data.email,
-                        name: data.name,
-                        signupDate: new Date().toISOString()
-                    }));
-                    
-                    // Show success message
-                    document.getElementById('modal-form').style.display = 'none';
-                    document.getElementById('error-message').style.display = 'none';
-                    document.getElementById('success-message').style.display = 'block';
-                    
-                    // Reset form
-                    e.target.reset();
-                    
-                    // Auto-redirect to app after 3 seconds if there's a prompt
-                    if (userPrompt) {
-                        setTimeout(() => {
-                            const encodedPrompt = encodeURIComponent(userPrompt);
-                            window.location.href = `${APP_URL}?prompt=${encodedPrompt}`;
-                        }, 3000);
-                    }
-                    
-                } catch (error) {
-                    // Show error message
-                    document.getElementById('modal-form').style.display = 'none';
-                    document.getElementById('success-message').style.display = 'none';
-                    document.getElementById('error-message').style.display = 'block';
-                    
-                    console.error('Form submission error:', error);
-                } finally {
-                    // Reset button state
-                    btnText.style.display = 'inline';
-                    btnLoader.style.display = 'none';
-                    submitBtn.disabled = false;
+            // Security: Rate limiting for prompt submissions
+            let lastSubmissionTime = 0;
+            const SUBMISSION_COOLDOWN = 5000; // 5 seconds
+            
+            const originalHandlePromptSubmit = window.handlePromptSubmit;
+            window.handlePromptSubmit = function() {
+                const now = Date.now();
+                if (now - lastSubmissionTime < SUBMISSION_COOLDOWN) {
+                    alert('Please wait a moment before submitting again.');
+                    return;
                 }
-            });
+                lastSubmissionTime = now;
+                originalHandlePromptSubmit();
+            };
             
             // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1673,56 +1659,9 @@
             });
             
             // Observe sections
-            document.querySelectorAll('.section, .use-case-card, .pricing-card').forEach(el => {
+            document.querySelectorAll('.section, .use-case-card, .feedback-card').forEach(el => {
                 observer.observe(el);
             });
-            
-            // Security: Rate limiting for prompt submissions
-            let lastSubmissionTime = 0;
-            const SUBMISSION_COOLDOWN = 5000; // 5 seconds
-            
-            const originalHandlePromptSubmit = window.handlePromptSubmit;
-            window.handlePromptSubmit = function() {
-                const now = Date.now();
-                if (now - lastSubmissionTime < SUBMISSION_COOLDOWN) {
-                    alert('Please wait a moment before submitting again.');
-                    return;
-                }
-                lastSubmissionTime = now;
-                originalHandlePromptSubmit();
-            };
-            
-            // Basic prompt validation to prevent misuse
-            function validatePrompt(prompt) {
-                if (prompt.length > 1000) {
-                    alert('Please keep your business description under 1000 characters.');
-                    return false;
-                }
-                
-                // Basic spam/abuse detection
-                const spamKeywords = ['test', 'testing', 'asdf', 'qwerty'];
-                const lowerPrompt = prompt.toLowerCase();
-                if (spamKeywords.some(keyword => lowerPrompt.includes(keyword))) {
-                    if (prompt.length < 20) {
-                        alert('Please provide a more detailed business description.');
-                        return false;
-                    }
-                }
-                
-                return true;
-            }
-            
-            // Add validation to prompt submission
-            const originalSubmit = window.handlePromptSubmit;
-            window.handlePromptSubmit = function() {
-                const promptText = document.getElementById('main-prompt').value.trim();
-                
-                if (!validatePrompt(promptText)) {
-                    return;
-                }
-                
-                originalSubmit();
-            };
         });
     </script>
 </body>
