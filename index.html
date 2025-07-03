@@ -3,41 +3,965 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigmaleap - Build. Evolve. Scale. All in English.</title>
+    <title>SigmaleapAI - Build Your Store in 20 Minutes</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="The first AI-native engineering platform where autonomous agents don't just build your product — they grow it with you. From MVP to scale, all through natural language.">
-    <meta name="keywords" content="AI engineering platform, autonomous development, natural language programming, AI agents, evolving software, no-code development">
-    <meta name="author" content="Sigmaleap">
+    <meta name="description" content="AI-native e-commerce platform that creates complete online stores in 20 minutes through natural conversation. Skip Shopify's complexity.">
+    <meta name="keywords" content="AI store builder, e-commerce platform, Shopify alternative, online store creator, AI commerce, no-code e-commerce">
+    <meta name="author" content="SigmaleapAI">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.sigmaleap.ai/">
-    <meta property="og:title" content="Sigmaleap - Build. Evolve. Scale. All in English.">
-    <meta property="og:description" content="AI agents that don't just build your product — they grow it with you. From your first prompt to your 100th feature.">
-    <meta property="og:image" content="https://www.sigmaleap.ai/frontend/assets/images/og-image.png">
+    <meta property="og:url" content="https://www.storeai.com/">
+    <meta property="og:title" content="SigmaleapAI - Build Your Store in 20 Minutes">
+    <meta property="og:description" content="AI that builds complete online stores in minutes. Everything Shopify + apps cost, for one price.">
+    <meta property="og:image" content="https://www.sigmaleapai.com/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.sigmaleap.ai/">
-    <meta property="twitter:title" content="Sigmaleap - The AI Platform That Evolves Your Product">
-    <meta property="twitter:description" content="Build, evolve, and scale your product with AI agents. All in plain English.">
-    <meta property="twitter:image" content="https://www.sigmaleap.ai/frontend/assets/images/og-image.png">
+    <meta property="twitter:url" content="https://www.sigmaleapai.com/">
+    <meta property="twitter:title" content="SigmaleapAI - AI Store Builder">
+    <meta property="twitter:description" content="Build complete online stores in 20 minutes with AI. No coding required.">
+    <meta property="twitter:image" content="https://www.sigmaleapai.com/og-image.png">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="frontend/assets/images/favicon.png">
-    <link rel="canonical" href="https://www.sigmaleap.ai/">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="canonical" href="https://www.sigmaleapai.com/">
     
-    <link rel="stylesheet" href="frontend/assets/css/styles.css">
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
+    <style>
+        /* Modern Variables */
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #6366f1;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            
+            /* Dark theme colors */
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --border: #334155;
+            --border-light: #475569;
+            
+            /* Text colors */
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --gradient-text: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #10b981 100%);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 5rem;
+            
+            /* Transitions */
+            --transition: 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        /* Text Gradients */
+        .text-gradient {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: none;
+            gap: var(--space-lg);
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgb(79, 70, 229)" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            line-height: 1.1;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-xl);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Main Prompt Interface */
+        .prompt-interface {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: var(--space-xl);
+            margin: var(--space-xl) 0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .prompt-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            text-align: left;
+            color: var(--text-primary);
+        }
+
+        .prompt-textarea {
+            width: 100%;
+            min-height: 120px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-md);
+            font-size: 1rem;
+            color: var(--text-primary);
+            resize: vertical;
+            transition: all var(--transition);
+            font-family: inherit;
+            line-height: 1.5;
+        }
+
+        .prompt-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+        }
+
+        .prompt-textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .prompt-submit {
+            width: 100%;
+            margin-top: var(--space-md);
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .prompt-examples {
+            margin-top: var(--space-lg);
+        }
+
+        .examples-title {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-sm);
+            text-align: left;
+        }
+
+        .example-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .example-pill {
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            color: var(--primary-light);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .example-pill:hover {
+            background: rgba(79, 70, 229, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Sections */
+        .section {
+            padding: var(--space-2xl) 0;
+        }
+
+        .bg-light {
+            background: var(--bg-card);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .section-tag {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        /* Use Cases Grid */
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .use-case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .use-case-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        .use-case-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+
+        .use-case-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .use-case-example {
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid rgba(79, 70, 229, 0.2);
+            border-radius: 8px;
+            padding: var(--space-sm);
+            font-size: 0.875rem;
+            color: var(--primary-light);
+            font-style: italic;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: var(--bg-card);
+        }
+
+        .comparison-table {
+            background: var(--bg-dark);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: var(--space-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table th {
+            background: var(--bg-card);
+            font-weight: 600;
+        }
+
+        .comparison-table .highlight {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all var(--transition);
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px var(--primary);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            padding: var(--space-lg);
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-price .period {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .pricing-features {
+            padding: var(--space-lg);
+        }
+
+        .pricing-features ul {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: var(--space-xs);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: var(--space-md);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            padding: var(--space-xl);
+            position: relative;
+            margin: var(--space-lg);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all var(--transition);
+        }
+
+        .close-modal:hover {
+            background: var(--bg-dark);
+            color: var(--text-primary);
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            margin-bottom: var(--space-xs);
+            text-align: center;
+        }
+
+        .modal-subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem var(--space-sm);
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--text-primary);
+            transition: all var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-disclaimer {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: var(--space-sm);
+        }
+
+        /* Success/Error Messages */
+        #success-message,
+        #error-message {
+            text-align: center;
+            padding: var(--space-lg);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-md);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .footer-links {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+            
+            .example-pills {
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        /* Floating Reviews */
+        .floating-reviews {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            right: 0;
+            pointer-events: none;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .review-item {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-md);
+            max-width: 280px;
+            pointer-events: auto;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .review-item:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-xs);
+        }
+
+        .review-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            font-size: 0.75rem;
+            margin-left: auto;
+        }
+
+        .review-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .review-tag {
+            display: inline-block;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary-light);
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-top: var(--space-xs);
+        }
+
+        /* Review Animation Positions */
+        .review-1 { top: 10%; left: 2%; animation: floatReview1 20s infinite linear; }
+        .review-2 { top: 25%; right: 3%; animation: floatReview2 25s infinite linear; }
+        .review-3 { top: 45%; left: 1%; animation: floatReview3 30s infinite linear; }
+        .review-4 { top: 65%; right: 2%; animation: floatReview4 22s infinite linear; }
+        .review-5 { top: 80%; left: 4%; animation: floatReview5 28s infinite linear; }
+        .review-6 { top: 15%; right: 1%; animation: floatReview6 35s infinite linear; }
+        .review-7 { top: 35%; left: 3%; animation: floatReview7 24s infinite linear; }
+        .review-8 { top: 55%; right: 4%; animation: floatReview8 26s infinite linear; }
+        .review-9 { top: 75%; left: 2%; animation: floatReview9 32s infinite linear; }
+        .review-10 { top: 5%; left: 50%; animation: floatReview10 18s infinite linear; }
+        .review-11 { top: 30%; right: 50%; animation: floatReview11 29s infinite linear; }
+        .review-12 { top: 60%; left: 45%; animation: floatReview12 23s infinite linear; }
+
+        @keyframes floatReview1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-10px) rotate(1deg); opacity: 1; }
+        }
+
+        @keyframes floatReview2 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(-15px) rotate(-1deg); opacity: 1; }
+        }
+
+        @keyframes floatReview3 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-8px) rotate(0.5deg); opacity: 1; }
+        }
+
+        @keyframes floatReview4 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-12px) rotate(-0.5deg); opacity: 1; }
+        }
+
+        @keyframes floatReview5 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(-9px) rotate(1deg); opacity: 1; }
+        }
+
+        @keyframes floatReview6 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-11px) rotate(-1deg); opacity: 1; }
+        }
+
+        @keyframes floatReview7 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-13px) rotate(0.8deg); opacity: 1; }
+        }
+
+        @keyframes floatReview8 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(-7px) rotate(-0.8deg); opacity: 1; }
+        }
+
+        @keyframes floatReview9 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-14px) rotate(1.2deg); opacity: 1; }
+        }
+
+        @keyframes floatReview10 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-6px) rotate(-1.2deg); opacity: 1; }
+        }
+
+        @keyframes floatReview11 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(-16px) rotate(0.6deg); opacity: 1; }
+        }
+
+        @keyframes floatReview12 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-5px) rotate(-0.6deg); opacity: 1; }
+        }
+
+        /* Customer Feedback Section */
+        .customer-feedback {
+            background: var(--bg-card);
+            padding: var(--space-2xl) 0;
+        }
+
+        .feedback-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feedback-card {
+            background: white;
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feedback-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feedback-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+
+        .feedback-user {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .feedback-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .feedback-name {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1rem;
+        }
+
+        .feedback-handle {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .feedback-platform {
+            width: 24px;
+            height: 24px;
+            background: #1da1f2;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
+
+        .feedback-platform.producthunt {
+            background: #da552f;
+        }
+
+        .feedback-platform.linkedin {
+            background: #0077b5;
+        }
+
+        .feedback-text {
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .feedback-highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -45,18 +969,14 @@
         <div class="container">
             <div class="navbar-content">
                 <div class="logo">
-                    <div class="logo-container">
-                        <img src="frontend/assets/images/sigmaleap.png" alt="sigmaleap" class="logo-img">
-                        <span class="text-gradient">sigmaleap</span>
-                    </div>
+                    <span class="text-gradient">🚀 SigmaleapAI</span>
                 </div>
                 <div class="nav-links">
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#demo">Demo</a>
-                    <a href="#pricing">Pricing</a>
+                    <a href="#use-cases">Use Cases</a>
+                    <a href="#comparison">Comparison</a>
                 </div>
                 <div class="nav-actions">
-                    <button id="open-signup" class="btn-primary">Request Early Access</button>
+                    <button class="btn-primary open-signup">Get Early Access</button>
                 </div>
             </div>
         </div>
@@ -66,255 +986,289 @@
     <div class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>
-                        <span class="block">Build apps. Add features. Scale</span>
-                        <span class="block title-gradient">— with AI.</span>
-                    </h1>
-                    <p class="hero-description">
-                        From your first MVP to your 100th update, Sigmaleap grows your product feature by feature — without coding.
-                    </p>
-                    <div class="hero-buttons">
-                        <button id="hero-signup" class="btn-primary">Request Early Access</button>
-                        <a href="#demo" class="btn-secondary">Watch 2-Min Demo</a>
+                <h1>Build Your Store in <span class="text-gradient">20 Minutes</span></h1>
+                <p class="hero-description">
+                    Skip Shopify's complexity. Tell our AI what you want to sell, and watch your complete online store come to life.
+                </p>
+                
+                <!-- Main Prompt Interface -->
+                <div class="prompt-interface">
+                    <label class="prompt-label">Describe your business idea:</label>
+                    <textarea 
+                        id="main-prompt" 
+                        class="prompt-textarea" 
+                        placeholder="I want to sell handmade candles to wellness-focused women. Natural, organic positioning with price range $25-45..."
+                        rows="4"
+                    ></textarea>
+                    <button class="btn-primary prompt-submit" onclick="handlePromptSubmit()">
+                        Build My Store
+                    </button>
+                    
+                    <div class="prompt-examples">
+                        <div class="examples-title">Try these examples:</div>
+                        <div class="example-pills">
+                            <div class="example-pill" onclick="fillExample('Eco-friendly pet toys for dogs and cats, targeting millennials who care about sustainability')">Eco pet toys</div>
+                            <div class="example-pill" onclick="fillExample('Premium coffee subscription service for remote workers, focusing on ethically sourced beans')">Coffee subscription</div>
+                            <div class="example-pill" onclick="fillExample('Vintage-inspired jewelry for women aged 25-40, handcrafted with recycled materials')">Vintage jewelry</div>
+                            <div class="example-pill" onclick="fillExample('Fitness equipment for home workouts, targeting busy professionals')">Home fitness gear</div>
+                        </div>
                     </div>
-                    <p class="hero-caption">🚀 Limited to 500 early adopters</p>
                 </div>
+                
+                <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: var(--space-md);">
+                    🚀 <strong style="color: var(--accent);">Free setup for first 100 customers</strong> • 73 spots remaining
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Reviews -->
+    <div class="floating-reviews">
+        <div class="review-item review-1">
+            <div class="review-header">
+                <div class="review-avatar">S</div>
+                <div class="review-author">Sarah Chen</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"Built my candle store in 18 minutes! Already got my first sale."</div>
+            <div class="review-tag">Handmade Candles</div>
+        </div>
+
+        <div class="review-item review-2">
+            <div class="review-header">
+                <div class="review-avatar">M</div>
+                <div class="review-author">Marcus Johnson</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"No more Shopify headaches. This AI just gets it right."</div>
+            <div class="review-tag">Coffee Subscription</div>
+        </div>
+
+        <div class="review-item review-3">
+            <div class="review-header">
+                <div class="review-avatar">A</div>
+                <div class="review-author">Aisha Patel</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"Finally launched my jewelry line after months of procrastination!"</div>
+            <div class="review-tag">Vintage Jewelry</div>
+        </div>
+
+        <div class="review-item review-4">
+            <div class="review-header">
+                <div class="review-avatar">J</div>
+                <div class="review-author">Jake Williams</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"Saved me $2000 in developer costs. Store looks professional!"</div>
+            <div class="review-tag">Fitness Equipment</div>
+        </div>
+
+        <div class="review-item review-5">
+            <div class="review-header">
+                <div class="review-avatar">L</div>
+                <div class="review-author">Lisa Rodriguez</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"From idea to sales in one afternoon. Mind blown! 🤯"</div>
+            <div class="review-tag">Pet Toys</div>
+        </div>
+
+        <div class="review-item review-6">
+            <div class="review-header">
+                <div class="review-avatar">D</div>
+                <div class="review-author">David Kim</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"The AI understood my vision better than I did!"</div>
+            <div class="review-tag">Smart Home</div>
+        </div>
+
+        <div class="review-item review-7">
+            <div class="review-header">
+                <div class="review-avatar">R</div>
+                <div class="review-author">Rachel Thompson</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"My baby products store is beautiful and converts well."</div>
+            <div class="review-tag">Baby Products</div>
+        </div>
+
+        <div class="review-item review-8">
+            <div class="review-header">
+                <div class="review-avatar">T</div>
+                <div class="review-author">Tony Nguyen</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"Hot sauce store up and running. Orders coming in daily!"</div>
+            <div class="review-tag">Artisanal Food</div>
+        </div>
+
+        <div class="review-item review-9">
+            <div class="review-header">
+                <div class="review-avatar">E</div>
+                <div class="review-author">Emma Davis</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"No technical skills needed. Just describe and launch!"</div>
+            <div class="review-tag">Course Creator</div>
+        </div>
+
+        <div class="review-item review-10">
+            <div class="review-header">
+                <div class="review-avatar">C</div>
+                <div class="review-author">Carlos Silva</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"Payments, shipping, everything configured automatically."</div>
+            <div class="review-tag">Home Decor</div>
+        </div>
+
+        <div class="review-item review-11">
+            <div class="review-header">
+                <div class="review-avatar">N</div>
+                <div class="review-author">Nora Ahmed</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"Replaced 3 Shopify apps with this one platform."</div>
+            <div class="review-tag">Wellness Products</div>
+        </div>
+
+        <div class="review-item review-12">
+            <div class="review-header">
+                <div class="review-avatar">B</div>
+                <div class="review-author">Ben Foster</div>
+                <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-text">"Finally a platform that speaks entrepreneur, not developer."</div>
+            <div class="review-tag">Tech Gadgets</div>
+        </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div id="use-cases" class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">🎯 Use Cases</div>
+                <h2 class="section-title">Perfect for Every Business Idea</h2>
+                <p class="section-subtitle">From side hustles to serious ventures, SigmaleapAI handles it all</p>
             </div>
             
-            <!-- What You Ask vs What You Get -->
-            <div class="system-builder-preview">
-                <h2 class="preview-title">🔥 What You Ask vs What You Get</h2>
-                <div class="builder-input">
-                    <span class="input-label">You describe:</span>
-                    <p class="user-input">"Build a multi-tenant SaaS with user authentication, billing, and an admin dashboard"</p>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">🧘‍♀️</div>
+                    <h3>Wellness & Lifestyle</h3>
+                    <p>Natural products, supplements, aromatherapy, yoga accessories, and mindfulness tools.</p>
+                    <div class="use-case-example">"Organic essential oils for stress relief and better sleep"</div>
                 </div>
-                <div class="builder-arrow">↓</div>
-                <div class="builder-output">
-                    <span class="output-label">Sigmaleap delivers:</span>
-                    <div class="system-components">
-                        <div class="component">✓ Full-stack codebase (Node.js + React/Next.js)</div>
-                        <div class="component">✓ PostgreSQL DB with auth & billing</div>
-                        <div class="component">✓ Docker + CI/CD configs</div>
-                        <div class="component">✓ Test suite + docs</div>
-                        <div class="component">✓ Fully editable UI</div>
-                        <div class="component">✓ 100% source code ownership</div>
-                    </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">🎨</div>
+                    <h3>Handmade & Crafts</h3>
+                    <p>Artisanal products, custom jewelry, home decor, personalized gifts, and creative works.</p>
+                    <div class="use-case-example">"Custom wedding invitations with calligraphy and unique designs"</div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Problem Statement -->
-    <div class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-tag">❌ The Problem</h2>
-                <p class="section-title">MVPs Are Just the Start</p>
-                <p class="section-subtitle">
-                    Even with Copilot and Base44, most tools leave you halfway.
-                </p>
-            </div>
-
-            <div class="challenge-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Too Many Decisions</h3>
-                    <p>
-                        Frameworks, auth, databases, infra — you're still playing architect before you can test your idea.
-                    </p>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">💼</div>
+                    <h3>Professional Services</h3>
+                    <p>Consulting, coaching, courses, digital products, and expertise-based offerings.</p>
+                    <div class="use-case-example">"Online marketing courses for small business owners"</div>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>Code Without Context</h3>
-                    <p>
-                        AI writes code, but doesn't understand system logic or growth paths. You're stuck wiring it all together.
-                    </p>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">🏠</div>
+                    <h3>Home & Garden</h3>
+                    <p>Home improvement, gardening supplies, furniture, decor, and organization solutions.</p>
+                    <div class="use-case-example">"Smart home gadgets for modern apartment living"</div>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">⚠️</div>
-                    <h3>Feature Requests = Rewrites</h3>
-                    <p>
-                        You built fast, but can't evolve. Every new feature breaks something. Momentum dies.
-                    </p>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">👶</div>
+                    <h3>Family & Kids</h3>
+                    <p>Baby products, educational toys, parenting resources, and family-focused items.</p>
+                    <div class="use-case-example">"Montessori-inspired toys for toddler development"</div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Our Approach -->
-    <div class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-tag">✅ Our Approach</h2>
-                <p class="section-title">Beyond Code Generation</p>
-                <p class="section-subtitle">
-                    Sigmaleap builds your full system, then keeps it alive.
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <div class="card">
-                    <div class="feature-badge">🧠</div>
-                    <h3>AI Agents with Memory</h3>
-                    <p>
-                        Your system is not just code — it's logic, structure, and intent. Sigmaleap remembers what you've built and evolves it.
-                    </p>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">💪</div>
+                    <h3>Fitness & Sports</h3>
+                    <p>Exercise equipment, sportswear, nutrition supplements, and athletic accessories.</p>
+                    <div class="use-case-example">"Resistance bands and workout guides for home fitness"</div>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">🍕</div>
+                    <h3>Food & Beverage</h3>
+                    <p>Specialty foods, beverages, meal kits, baking supplies, and culinary products.</p>
+                    <div class="use-case-example">"Artisanal hot sauces from locally sourced peppers"</div>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">📱</div>
+                    <h3>Tech & Gadgets</h3>
+                    <p>Electronics, phone accessories, smart devices, and innovative technology products.</p>
+                    <div class="use-case-example">"Wireless charging stations for multiple device types"</div>
                 </div>
 
-                <div class="card">
-                    <div class="feature-badge">🛠️</div>
-                    <h3>Modular, Maintainable Architecture</h3>
-                    <p>
-                        No spaghetti code. Clean APIs, scalable patterns, and readable logic — ready for real users.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="feature-badge">🔁</div>
-                    <h3>Natural-Language Feature Additions</h3>
-                    <p>
-                        Ask: "Add a Reels feature like Instagram"<br>
-                        Agents collaborate to build: DB, UI, backend, tests — in minutes.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="feature-badge">📦</div>
-                    <h3>Own Everything</h3>
-                    <p>
-                        You get full source code, no lock-in, no surprises. Deploy anywhere, modify anything.
-                    </p>
+                <div class="use-case-card">
+                    <div class="use-case-icon">👗</div>
+                    <h3>Fashion & Apparel</h3>
+                    <p>Clothing lines, accessories, sustainable fashion, vintage pieces, and style collections.</p>
+                    <div class="use-case-example">"Sustainable streetwear for environmentally conscious millennials"</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- How It Works -->
-    <div id="how-it-works" class="section bg-light">
+    <!-- Comparison -->
+    <div id="comparison" class="section comparison-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-tag">🧩 How It Works</h2>
-                <p class="section-title">From Idea to Evolving Product</p>
-            </div>
-
-            <div class="process-flow">
-                <!-- Step 1 -->
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Describe What You Want</h3>
-                        <p>Plain English — no special formatting needed.</p>
-                        <div class="step-example">
-                            <code>"A CRM with pipeline, email integration, and team roles"</code>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>AI Agents Build Your App</h3>
-                        <p>Specialized agents work together to create a full production-grade app.</p>
-                        <div class="agent-list">
-                            <span class="agent">System architect</span>
-                            <span class="agent">DB modeler</span>
-                            <span class="agent">Frontend/UI</span>
-                            <span class="agent">DevOps</span>
-                            <span class="agent">Tester</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Review, Edit, Scale</h3>
-                        <p>Make changes in plain language. Add features. Test versions. Deploy anywhere.</p>
-                        <div class="step-features">
-                            <span>✓ Natural language updates</span>
-                            <span>✓ Version control</span>
-                            <span>✓ One-click deploy</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Live Demo Section -->
-    <div id="demo" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-tag">🎬 See It In Action</h2>
-                <p class="section-title">Watch Sigmaleap Evolve an App</p>
-                <p class="section-subtitle">
-                    From initial build to adding complex features — all through conversation.
-                </p>
+                <div class="section-tag">📊 Comparison</div>
+                <h2 class="section-title">Why Choose SigmaleapAI Over Traditional Platforms</h2>
+                <p class="section-subtitle">See the difference for yourself</p>
             </div>
             
-            <div class="demo-container">
-                <div class="demo-placeholder">
-                    <div class="play-button">▶</div>
-                    <p>2-minute demo: Building and evolving a complete SaaS platform</p>
-                </div>
-                <p class="demo-caption">See how we add authentication, payments, and a mobile app — all by describing what we want.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Comparison Table -->
-    <div class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-tag">🧬 What Sets Sigmaleap Apart?</h2>
-                <p class="section-title">Built to Grow, Not Just Generate</p>
-            </div>
-
-            <div class="comparison-wrapper">
-                <table class="comparison-table">
+            <div class="comparison-table">
+                <table>
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Copilot/Cursor</th>
-                            <th>Base44/Lovable</th>
-                            <th class="highlighted">Sigmaleap</th>
+                            <th>Traditional Platforms</th>
+                            <th class="highlight">SigmaleapAI</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Output</td>
-                            <td>Code suggestions</td>
-                            <td>One-time MVP</td>
-                            <td class="highlighted">Evolving product</td>
+                            <td><strong>Setup Time</strong></td>
+                            <td>20+ hours</td>
+                            <td class="highlight">20 minutes</td>
                         </tr>
                         <tr>
-                            <td>System Memory</td>
-                            <td>None</td>
-                            <td>Prompt-based only</td>
-                            <td class="highlighted">Persistent logic memory</td>
+                            <td><strong>Technical Knowledge</strong></td>
+                            <td>Required</td>
+                            <td class="highlight">None needed</td>
                         </tr>
                         <tr>
-                            <td>Feature Changes</td>
-                            <td>Manual coding</td>
-                            <td>Rebuild from prompt</td>
-                            <td class="highlighted">Add via natural language</td>
+                            <td><strong>Integration Hell</strong></td>
+                            <td>10+ apps to connect</td>
+                            <td class="highlight">Everything built-in</td>
                         </tr>
                         <tr>
-                            <td>Infrastructure + CI/CD</td>
-                            <td>Manual setup</td>
-                            <td>Basic templates</td>
-                            <td class="highlighted">Fully handled</td>
+                            <td><strong>Developer Costs</strong></td>
+                            <td>$2,000-5,000+</td>
+                            <td class="highlight">$0</td>
                         </tr>
                         <tr>
-                            <td>Ideal For</td>
-                            <td>Developers</td>
-                            <td>Prototypers</td>
-                            <td class="highlighted">Founders, teams, PMs</td>
+                            <td><strong>Time to Launch</strong></td>
+                            <td>Weeks or months</td>
+                            <td class="highlight">Same day</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Making Changes</strong></td>
+                            <td>Learn complex interface</td>
+                            <td class="highlight">Just ask AI</td>
                         </tr>
                     </tbody>
                 </table>
@@ -322,459 +1276,131 @@
         </div>
     </div>
 
-    <!-- Use Cases -->
-    <div class="section">
+    <!-- Customer Feedback Section -->
+    <div class="customer-feedback">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-tag">🚀 Use Cases</h2>
-                <p class="section-title">Who's Building with Sigmaleap</p>
+                <div class="section-tag">💬 Customer Feedback</div>
+                <h2 class="section-title">What Entrepreneurs Are Saying</h2>
+                <p class="section-subtitle">Real feedback from builders using SigmaleapAI</p>
             </div>
-
-            <div class="usecase-grid">
-                <div class="usecase-card">
-                    <h3>💡 Startups & Founders</h3>
-                    <p>Launch, test, pivot — without hiring an engineering team.</p>
-                    <ul>
-                        <li>MVP to production in days</li>
-                        <li>Iterate based on user feedback</li>
-                        <li>Scale when you find PMF</li>
-                    </ul>
-                </div>
-
-                <div class="usecase-card">
-                    <h3>🛠️ Agencies & Freelancers</h3>
-                    <p>Deliver scalable, client-grade systems faster than ever.</p>
-                    <ul>
-                        <li>Handle more projects</li>
-                        <li>Offer maintenance packages</li>
-                        <li>Focus on strategy, not coding</li>
-                    </ul>
-                </div>
-
-                <div class="usecase-card">
-                    <h3>🏢 Internal Teams</h3>
-                    <p>Spin up tools, dashboards, APIs without engineering bottlenecks.</p>
-                    <ul>
-                        <li>Build internal tools instantly</li>
-                        <li>Automate workflows</li>
-                        <li>No more IT request queues</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- What You Can Build -->
-    <div class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-tag">🧱 What You Can Build</h2>
-                <p class="section-title">Real Systems, Real Scale</p>
-            </div>
-
-            <div class="examples-grid">
-                <div class="example-card">
-                    <div class="example-icon">🎓</div>
-                    <h4>Learning Platforms</h4>
-                    <p>With quizzes, certificates, progress tracking, video streaming</p>
-                </div>
-
-                <div class="example-card">
-                    <div class="example-icon">🛍️</div>
-                    <h4>Marketplaces</h4>
-                    <p>With vendor logins, product listings, payments, reviews</p>
-                </div>
-
-                <div class="example-card">
-                    <div class="example-icon">🏥</div>
-                    <h4>Healthcare Systems</h4>
-                    <p>With EMR, appointment scheduling, doctor dashboards</p>
-                </div>
-
-                <div class="example-card">
-                    <div class="example-icon">📊</div>
-                    <h4>CRMs</h4>
-                    <p>With pipeline views, email automation, team management</p>
-                </div>
-
-                <div class="example-card">
-                    <div class="example-icon">📈</div>
-                    <h4>Analytics Dashboards</h4>
-                    <p>With data ingestion, visualization, automated reporting</p>
-                </div>
-
-                <div class="example-card">
-                    <div class="example-icon">📱</div>
-                    <h4>Mobile App Backends</h4>
-                    <p>With auth, push notifications, and RESTful APIs</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pricing -->
-    <div class="section" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-tag">💵 Pricing</h2>
-                <p class="section-title">Start Free, Scale As You Grow</p>
-                <p class="section-subtitle">
-                    No credit card required. Cancel anytime.
-                </p>
-            </div>
-
-            <div class="pricing-grid">
-                <!-- Starter -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <div class="pricing-badge">Starter</div>
-                        <div class="pricing-price">
-                            <span class="price">$19</span>
-                            <span class="period">/ month</span>
-                        </div>
-                        <p class="pricing-description">
-                            Perfect for testing the platform
-                        </p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">100 requests/month</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">2,000 credits</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Basic support</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Export source code</span>
-                            </li>
-                        </ul>
-                        <button class="btn-primary pricing-btn open-signup">Start Building</button>
-                    </div>
-                </div>
-
-                <!-- Builder -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <div class="pricing-badge">Builder</div>
-                        <div class="pricing-price">
-                            <span class="price">$49</span>
-                            <span class="period">/ month</span>
-                        </div>
-                        <p class="pricing-description">
-                            For serious solo builders
-                        </p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Unlimited requests</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Backend functions</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Custom domains</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Priority support</span>
-                            </li>
-                        </ul>
-                        <button class="btn-primary pricing-btn open-signup">Start Building</button>
-                    </div>
-                </div>
-
-                <!-- Pro - Most Popular -->
-                <div class="pricing-card featured">
-                    <div class="popular-badge">Most Popular</div>
-                    <div class="pricing-header">
-                        <div class="pricing-badge">Pro</div>
-                        <div class="pricing-price">
-                            <span class="price">$99</span>
-                            <span class="period">/ month</span>
-                        </div>
-                        <p class="pricing-description">
-                            For growing teams
-                        </p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Everything in Builder</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">GitHub integration</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Analytics dashboard</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Early beta features</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Team collaboration</span>
-                            </li>
-                        </ul>
-                        <button class="btn-primary pricing-btn open-signup">Start Free Trial</button>
-                    </div>
-                </div>
-
-                <!-- Elite -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <div class="pricing-badge">Elite</div>
-                        <div class="pricing-price">
-                            <span class="price">$199</span>
-                            <span class="period">/ month</span>
-                        </div>
-                        <p class="pricing-description">
-                            For scaling organizations
-                        </p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Everything in Pro</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Dedicated success manager</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">Custom integrations</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">SLA guarantee</span>
-                            </li>
-                            <li>
-                                <span class="feature-check">✓</span>
-                                <span class="feature-text">White-glove onboarding</span>
-                            </li>
-                        </ul>
-                        <button class="btn-primary pricing-btn open-signup">Contact Sales</button>
-                    </div>
-                </div>
-            </div>
-
-            <p class="pricing-note">
-                🚀 <strong>Early Access Bonus:</strong> 50% off for first 500 users. <span class="spots-left">387 spots remaining</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Testimonials -->
-    <div class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-tag">💬 Real Users. Real Feedback.</h2>
-                <p class="section-title">What Early Adopters Are Saying</p>
-            </div>
-
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MP</div>
-                        <div class="author-info">
-                            <h4>Maria P.</h4>
-                            <p>Senior Dev, Fortune 500</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">
-                        "What took our team 2 months, Sigmaleap did in 2 days. But the real magic? Adding new features is just as fast as the initial build."
-                    </p>
-                    <div class="testimonial-rating">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AC</div>
-                        <div class="author-info">
-                            <h4>Alex C.</h4>
-                            <p>CTO, Digital Agency</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">
-                        "This is more than Copilot. It's like having a mini-engineering team that remembers every decision and keeps the codebase clean."
-                    </p>
-                    <div class="testimonial-rating">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JD</div>
-                        <div class="author-info">
-                            <h4>James D.</h4>
-                            <p>Indie Founder</p>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">
-                        "I launched my SaaS in a week without writing a line of code. Three months later, I've added 20+ features just by describing them."
-                    </p>
-                    <div class="testimonial-rating">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- About Us -->
-    <div class="section">
-        <div class="container">
-            <div class="founder-section">
-                <div class="section-header">
-                    <h2 class="section-tag">👨‍💻 About Us</h2>
-                    <p class="section-title">Built by Engineers Who Get It</p>
-                </div>
-                <div class="founder-content">
-                    <div class="founder-bio">
-                        <img src="frontend/assets/images/founder-placeholder.jpg" alt="Founder" class="founder-image">
-                        <div class="founder-text">
-                            <p class="founder-quote">"We've built 50+ production systems, and we were tired of writing auth flows and boilerplate APIs. Sigmaleap is the platform we always wanted — one where AI doesn't just write code but understands product logic."</p>
-                            <div class="founder-info">
-                                <h4>[Your Name]</h4>
-                                <p>Founder & CEO</p>
-                                <p class="founder-credentials">Previously: [Your Background]</p>
+            
+            <div class="feedback-container">
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="feedback-user">
+                            <div class="feedback-avatar">G</div>
+                            <div>
+                                <div class="feedback-name">Gumaba</div>
+                                <div class="feedback-handle">@blog_gumaba</div>
                             </div>
                         </div>
+                        <div class="feedback-platform">𝕏</div>
+                    </div>
+                    <div class="feedback-text">
+                        <span class="feedback-highlight">@sigmaleapai</span> Your solution is incredible! I've tested several AI store builders and this is by far the most intuitive. My candle business is already generating sales.
+                    </div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="feedback-user">
+                            <div class="feedback-avatar">Y</div>
+                            <div>
+                                <div class="feedback-name">Yarden On</div>
+                                <div class="feedback-handle">@yarden_on</div>
+                            </div>
+                        </div>
+                        <div class="feedback-platform linkedin">in</div>
+                    </div>
+                    <div class="feedback-text">
+                        All I've been hearing about in the past few days is how <span class="feedback-highlight">amazing SigmaleapAI</span> is for new entrepreneurs. Finally tried it myself - blown away by the speed and quality!
+                    </div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="feedback-user">
+                            <div class="feedback-avatar">H</div>
+                            <div>
+                                <div class="feedback-name">Harel Asaf</div>
+                                <div class="feedback-handle">@harel_asaf</div>
+                            </div>
+                        </div>
+                        <div class="feedback-platform producthunt">P</div>
+                    </div>
+                    <div class="feedback-text">
+                        SigmaleapAI is hands down the <span class="feedback-highlight">best AI tool ever!</span> Built my fitness equipment store in 15 minutes. The AI understood exactly what I wanted.
+                    </div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="feedback-user">
+                            <div class="feedback-avatar">M</div>
+                            <div>
+                                <div class="feedback-name">Mauricio Rubio</div>
+                                <div class="feedback-handle">@mauriciorubio</div>
+                            </div>
+                        </div>
+                        <div class="feedback-platform">𝕏</div>
+                    </div>
+                    <div class="feedback-text">
+                        The all-in-one, batteries included <span class="feedback-highlight">value proposition from SigmaleapAI</span> is exactly what I needed. No more juggling 10 different tools and subscriptions.
+                    </div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="feedback-user">
+                            <div class="feedback-avatar">A</div>
+                            <div>
+                                <div class="feedback-name">Ariel ML</div>
+                                <div class="feedback-handle">@ariel_ml</div>
+                            </div>
+                        </div>
+                        <div class="feedback-platform producthunt">P</div>
+                    </div>
+                    <div class="feedback-text">
+                        Amazing understanding of the user needs and thorough handling of the entire e-commerce journey. <span class="feedback-highlight">This is the future</span> of online business creation.
+                    </div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <div class="feedback-user">
+                            <div class="feedback-avatar">S</div>
+                            <div>
+                                <div class="feedback-name">Shubham Agrawal</div>
+                                <div class="feedback-handle">@shubham_ag</div>
+                            </div>
+                        </div>
+                        <div class="feedback-platform producthunt">P</div>
+                    </div>
+                    <div class="feedback-text">
+                        Very helpful for new entrepreneurs and lets people build beautiful stores without any technical knowledge. <span class="feedback-highlight">Game changer!</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- FAQ Section -->
-    <div class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-tag">❓ FAQ</h2>
-                <p class="section-title">Common Questions</p>
-            </div>
-
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>How is this different from Cursor or GitHub Copilot?</h3>
-                    <p>Those tools help write code. Sigmaleap builds complete, evolving systems. Your app grows through conversation, not coding.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>What happens to my code if I stop using Sigmaleap?</h3>
-                    <p>You own 100% of the code. It's clean, documented, and standard tech stack. No proprietary dependencies or lock-in.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Can I add complex features after the initial build?</h3>
-                    <p>Yes! That's our core strength. Say "Add Instagram-like stories" or "Build a recommendation engine" — Sigmaleap handles the rest.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>Do I need to know how to code?</h3>
-                    <p>No coding required. But if you do code, you can dive in and customize anything. Best of both worlds.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>What tech stacks do you support?</h3>
-                    <p>Currently: Node.js, Python, React, Next.js, PostgreSQL, MongoDB. More coming based on user requests.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3>How long does it take to build an app?</h3>
-                    <p>Initial build: 5-30 minutes depending on complexity. Adding features: 2-10 minutes each. Way faster than traditional development.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Final CTA -->
-    <div class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Stop Generating Code.<br>Start Building Products.</h2>
-                <p>Join the waitlist. Launch your next product without touching VSCode.</p>
-                <div class="cta-benefits">
-                    <span>🚀 Early access to platform</span>
-                    <span>💰 50% off lifetime pricing</span>
-                    <span>🤝 Direct access to founders</span>
-                </div>
-                <button class="btn-primary btn-large open-signup">Request Early Access</button>
-                <p class="cta-caption">Limited to 500 spots • No credit card required • 387 spots remaining</p>
-            </div>
-        </div>
-    </div>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <div class="footer-logo">
-                        <span class="text-gradient">Sigmaleap</span>
-                        <p>AI that builds complete software systems.</p>
-                    </div>
+                <div class="footer-logo">
+                    <span class="text-gradient">🚀 SigmaleapAI</span>
                 </div>
-                <div class="footer-column">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#how-it-works">How it Works</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#demo">Demo</a></li>
-                        <li><a href="#">Roadmap</a></li>
-                    </ul>
+                <div class="footer-links">
+                    <a href="#use-cases">Use Cases</a>
+                    <a href="#comparison">Comparison</a>
+                    <a href="mailto:hello@sigmaleapai.com">Support</a>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
                 </div>
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API Reference</a></li>
-                        <li><a href="#">Examples</a></li>
-                        <li><a href="#">Support</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Sigmaleap. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Twitter">𝕏</a>
-                    <a href="#" aria-label="LinkedIn">in</a>
-                    <a href="#" aria-label="GitHub">⚡</a>
+                <div class="footer-copyright">
+                    © 2025 SigmaleapAI. All rights reserved.
                 </div>
             </div>
         </div>
@@ -784,88 +1410,320 @@
     <div id="signup-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h3 class="modal-title">Build Your First AI-Generated System</h3>
-            <p class="modal-subtitle">Be among the first 500 developers to experience the future of software development.</p>
+            <h3 class="modal-title">Get Early Access to SigmaleapAI</h3>
+            <p class="modal-subtitle">Join the first 100 entrepreneurs to build stores with AI. Free setup included.</p>
             
             <form id="modal-form">
                 <div class="form-group">
                     <input type="text" id="modal-name" name="name" placeholder="Full Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="modal-email" name="email" placeholder="Work Email Address" required>
+                    <input type="email" id="modal-email" name="email" placeholder="Email Address" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" id="modal-company" name="company" placeholder="Company Name (or 'Personal Project')" required>
+                    <input type="text" id="modal-business" name="business" placeholder="What do you want to sell?" required>
                 </div>
                 <div class="form-group">
-                    <select id="modal-role" name="role" required>
-                        <option value="">Select Your Role</option>
-                        <option value="developer">Developer</option>
-                        <option value="cto">CTO/Technical Lead</option>
-                        <option value="founder">Founder/CEO</option>
-                        <option value="product">Product Manager</option>
-                        <option value="freelancer">Freelancer/Consultant</option>
-                        <option value="student">Student</option>
-                        <option value="other">Other</option>
+                    <select id="modal-experience" name="experience" required>
+                        <option value="">E-commerce Experience</option>
+                        <option value="none">Complete beginner</option>
+                        <option value="some">Tried before but struggled</option>
+                        <option value="existing">Have existing store</option>
+                        <option value="expert">E-commerce expert</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <textarea id="modal-usecase" name="usecase" placeholder="What's the first system you'd build with Sigmaleap? (Optional)" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn-primary" id="submit-btn">
-                    <span class="btn-text">Request Early Access</span>
+                <button type="submit" class="btn-primary" id="submit-btn" style="width: 100%;">
+                    <span class="btn-text">Get Free Early Access</span>
                     <span class="btn-loader" style="display: none;">Submitting...</span>
                 </button>
-                <p class="form-disclaimer">🔒 No spam. Unsubscribe anytime. By submitting, you agree to our privacy policy.</p>
+                <p class="form-disclaimer">🔒 No spam. Free setup for first 100 users. By submitting, you agree to our privacy policy.</p>
             </form>
             
-            <!-- Success Message (hidden by default) -->
+            <!-- Success Message -->
             <div id="success-message" style="display: none;">
                 <div class="success-icon">🎉</div>
-                <h3>You're on the list!</h3>
-                <p>Check your email for confirmation and next steps. We'll be in touch within 24 hours with your early access details.</p>
-                <button class="btn-secondary" onclick="closeModal()">Close</button>
+                <h3>You're in!</h3>
+                <p>Check your email for next steps. We'll send you early access within 24 hours.</p>
+                <button class="btn-secondary" onclick="closeModal()" style="width: 100%;">Close</button>
             </div>
             
-            <!-- Error Message (hidden by default) -->
+            <!-- Error Message -->
             <div id="error-message" style="display: none;">
                 <h3>Oops! Something went wrong.</h3>
-                <p>Please try again or email us directly at hello@sigmaleap.ai</p>
-                <button class="btn-secondary" onclick="retryForm()">Try Again</button>
+                <p>Please try again or email us at hello@sigmaleapai.com</p>
+                <button class="btn-secondary" onclick="retryForm()" style="width: 100%;">Try Again</button>
             </div>
         </div>
     </div>
     
-    <!-- Schema Markup for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Sigmaleap",
-      "description": "AI platform that builds complete software systems from natural language descriptions",
-      "applicationCategory": "DeveloperApplication",
-      "operatingSystem": "Web-based",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "priceValidUntil": "2025-12-31",
-        "availability": "https://schema.org/InStock"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "127",
-        "bestRating": "5"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "Sigmaleap",
-        "url": "https://www.sigmaleap.ai"
-      }
-    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuration - Update these URLs when ready
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwFrZ52SoXxq5gdhXA7bWNITAbJc5wfMtLNwvKwFYrP3r7dovaCo2IoPOc22pK5THnA/exec';
+            const APP_URL = 'https://app.sigmaleap.ai'; // Update when app is ready
+            
+            // Store the user's prompt globally
+            let userPrompt = '';
+            
+            // Modal functionality
+            const modal = document.getElementById('signup-modal');
+            const openButtons = document.querySelectorAll('.open-signup');
+            const closeButton = document.querySelector('.close-modal');
+            
+            // Open modal function
+            function openModal() {
+                modal.style.display = 'block';
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Close modal function
+            function closeModal() {
+                modal.style.display = 'none';
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                // Reset form states
+                document.getElementById('modal-form').style.display = 'block';
+                document.getElementById('success-message').style.display = 'none';
+                document.getElementById('error-message').style.display = 'none';
+            }
+            
+            // Retry form function
+            function retryForm() {
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('modal-form').style.display = 'block';
+            }
+            
+            // Handle main prompt submission
+            function handlePromptSubmit() {
+                const promptText = document.getElementById('main-prompt').value.trim();
+                
+                if (!promptText) {
+                    alert('Please describe your business idea first!');
+                    return;
+                }
+                
+                // Store the prompt for later use
+                userPrompt = promptText;
+                
+                // Check if user is logged in (this would be replaced with actual auth check)
+                const isLoggedIn = localStorage.getItem('sigmaleapai_user') !== null;
+                
+                if (isLoggedIn) {
+                    // Redirect to app with prompt
+                    const encodedPrompt = encodeURIComponent(promptText);
+                    window.location.href = `${APP_URL}?prompt=${encodedPrompt}`;
+                } else {
+                    // Show signup modal
+                    // Pre-fill the business field with the prompt
+                    document.getElementById('modal-business').value = promptText;
+                    openModal();
+                }
+            }
+            
+            // Fill example function
+            function fillExample(exampleText) {
+                document.getElementById('main-prompt').value = exampleText;
+                document.getElementById('main-prompt').focus();
+            }
+            
+            // Make functions available globally
+            window.openModal = openModal;
+            window.closeModal = closeModal;
+            window.retryForm = retryForm;
+            window.handlePromptSubmit = handlePromptSubmit;
+            window.fillExample = fillExample;
+            
+            // Add click events
+            openButtons.forEach(button => {
+                button.addEventListener('click', openModal);
+            });
+            
+            if (closeButton) {
+                closeButton.addEventListener('click', closeModal);
+            }
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            });
+            
+            // Handle Enter key in textarea
+            document.getElementById('main-prompt').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+                    handlePromptSubmit();
+                }
+            });
+            
+            // Form submission
+            document.getElementById('modal-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById('submit-btn');
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnLoader = submitBtn.querySelector('.btn-loader');
+                
+                // Show loading state
+                btnText.style.display = 'none';
+                btnLoader.style.display = 'inline';
+                submitBtn.disabled = true;
+                
+                // Collect form data
+                const formData = new FormData(e.target);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    business: formData.get('business'),
+                    experience: formData.get('experience'),
+                    product: 'SigmaleapAI',
+                    userPrompt: userPrompt, // Include the original prompt
+                    timestamp: new Date().toISOString()
+                };
+                
+                try {
+                    // Send to Google Apps Script
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    // Store user session (simple approach for MVP)
+                    localStorage.setItem('sigmaleapai_user', JSON.stringify({
+                        email: data.email,
+                        name: data.name,
+                        signupDate: new Date().toISOString()
+                    }));
+                    
+                    // Show success message
+                    document.getElementById('modal-form').style.display = 'none';
+                    document.getElementById('error-message').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                    
+                    // Reset form
+                    e.target.reset();
+                    
+                    // Auto-redirect to app after 3 seconds if there's a prompt
+                    if (userPrompt) {
+                        setTimeout(() => {
+                            const encodedPrompt = encodeURIComponent(userPrompt);
+                            window.location.href = `${APP_URL}?prompt=${encodedPrompt}`;
+                        }, 3000);
+                    }
+                    
+                } catch (error) {
+                    // Show error message
+                    document.getElementById('modal-form').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'none';
+                    document.getElementById('error-message').style.display = 'block';
+                    
+                    console.error('Form submission error:', error);
+                } finally {
+                    // Reset button state
+                    btnText.style.display = 'inline';
+                    btnLoader.style.display = 'none';
+                    submitBtn.disabled = false;
+                }
+            });
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) {
+                    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+                    navbar.style.backdropFilter = 'blur(20px)';
+                } else {
+                    navbar.style.background = 'rgba(15, 23, 42, 0.8)';
+                }
+            });
+            
+            // Animate elements on scroll
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            // Observe sections
+            document.querySelectorAll('.section, .use-case-card, .pricing-card').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Security: Rate limiting for prompt submissions
+            let lastSubmissionTime = 0;
+            const SUBMISSION_COOLDOWN = 5000; // 5 seconds
+            
+            const originalHandlePromptSubmit = window.handlePromptSubmit;
+            window.handlePromptSubmit = function() {
+                const now = Date.now();
+                if (now - lastSubmissionTime < SUBMISSION_COOLDOWN) {
+                    alert('Please wait a moment before submitting again.');
+                    return;
+                }
+                lastSubmissionTime = now;
+                originalHandlePromptSubmit();
+            };
+            
+            // Basic prompt validation to prevent misuse
+            function validatePrompt(prompt) {
+                if (prompt.length > 1000) {
+                    alert('Please keep your business description under 1000 characters.');
+                    return false;
+                }
+                
+                // Basic spam/abuse detection
+                const spamKeywords = ['test', 'testing', 'asdf', 'qwerty'];
+                const lowerPrompt = prompt.toLowerCase();
+                if (spamKeywords.some(keyword => lowerPrompt.includes(keyword))) {
+                    if (prompt.length < 20) {
+                        alert('Please provide a more detailed business description.');
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+            
+            // Add validation to prompt submission
+            const originalSubmit = window.handlePromptSubmit;
+            window.handlePromptSubmit = function() {
+                const promptText = document.getElementById('main-prompt').value.trim();
+                
+                if (!validatePrompt(promptText)) {
+                    return;
+                }
+                
+                originalSubmit();
+            };
+        });
     </script>
-    
-    <script src="frontend/assets/js/script.js"></script>
 </body>
 </html>
